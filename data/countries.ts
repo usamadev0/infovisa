@@ -1,0 +1,167 @@
+export interface Country {
+  slug: string;
+  name: string;
+  flag: string;
+  region: string;
+  description: string;
+  visaTypes: string[];
+  processingTime: string;
+  difficulty: "Easy" | "Moderate" | "Complex";
+}
+
+export const COUNTRIES: Country[] = [
+  {
+    slug: "usa",
+    name: "United States",
+    flag: "🇺🇸",
+    region: "North America",
+    description: "The USA offers multiple visa categories for students, workers, tourists, and immigrants through USCIS and the Department of State.",
+    visaTypes: ["study", "work", "tourist", "immigration"],
+    processingTime: "2–12 weeks",
+    difficulty: "Complex",
+  },
+  {
+    slug: "uk",
+    name: "United Kingdom",
+    flag: "🇬🇧",
+    region: "Europe",
+    description: "The UK Home Office manages visa applications for students, skilled workers, visitors, and those seeking settlement.",
+    visaTypes: ["study", "work", "tourist", "immigration"],
+    processingTime: "3–8 weeks",
+    difficulty: "Moderate",
+  },
+  {
+    slug: "canada",
+    name: "Canada",
+    flag: "🇨🇦",
+    region: "North America",
+    description: "Canada's IRCC manages study permits, work permits, visitor visas, and permanent residency through points-based Express Entry.",
+    visaTypes: ["study", "work", "tourist", "immigration"],
+    processingTime: "4–16 weeks",
+    difficulty: "Moderate",
+  },
+  {
+    slug: "germany",
+    name: "Germany",
+    flag: "🇩🇪",
+    region: "Europe",
+    description: "Germany offers visas for students at its world-class universities, skilled workers under the Skilled Immigration Act, and tourists across the Schengen zone.",
+    visaTypes: ["study", "work", "tourist", "immigration"],
+    processingTime: "4–12 weeks",
+    difficulty: "Moderate",
+  },
+  {
+    slug: "australia",
+    name: "Australia",
+    flag: "🇦🇺",
+    region: "Oceania",
+    description: "Australia's Department of Home Affairs manages student visas (subclass 500), skilled migration, visitor visas, and permanent residency pathways.",
+    visaTypes: ["study", "work", "tourist", "immigration"],
+    processingTime: "4–10 weeks",
+    difficulty: "Moderate",
+  },
+  {
+    slug: "uae",
+    name: "United Arab Emirates",
+    flag: "🇦🇪",
+    region: "Middle East",
+    description: "The UAE offers student visas, employment visas, tourist visas, and the Golden Visa long-term residency program for exceptional talent.",
+    visaTypes: ["study", "work", "tourist", "immigration"],
+    processingTime: "1–4 weeks",
+    difficulty: "Easy",
+  },
+  {
+    slug: "saudi-arabia",
+    name: "Saudi Arabia",
+    flag: "🇸🇦",
+    region: "Middle East",
+    description: "Saudi Arabia's Absher portal facilitates tourist e-visas, employment visas, and student visas for its growing educational sector.",
+    visaTypes: ["study", "work", "tourist"],
+    processingTime: "1–3 weeks",
+    difficulty: "Easy",
+  },
+  {
+    slug: "turkey",
+    name: "Turkey",
+    flag: "🇹🇷",
+    region: "Europe/Asia",
+    description: "Turkey offers e-visas for tourists, student residence permits, and work permits through its e-Government portal.",
+    visaTypes: ["study", "work", "tourist", "immigration"],
+    processingTime: "1–6 weeks",
+    difficulty: "Easy",
+  },
+  {
+    slug: "italy",
+    name: "Italy",
+    flag: "🇮🇹",
+    region: "Europe",
+    description: "Italy provides Schengen tourist visas, student visas for its prestigious universities, and work visas through the annual Decreto Flussi quota.",
+    visaTypes: ["study", "work", "tourist", "immigration"],
+    processingTime: "3–8 weeks",
+    difficulty: "Moderate",
+  },
+  {
+    slug: "spain",
+    name: "Spain",
+    flag: "🇪🇸",
+    region: "Europe",
+    description: "Spain offers student visas, work authorizations, non-lucrative visas, and a Digital Nomad Visa for remote workers.",
+    visaTypes: ["study", "work", "tourist", "immigration"],
+    processingTime: "3–8 weeks",
+    difficulty: "Moderate",
+  },
+  {
+    slug: "france",
+    name: "France",
+    flag: "🇫🇷",
+    region: "Europe",
+    description: "France provides student visas via Campus France, talent passports for skilled professionals, and Schengen visitor visas.",
+    visaTypes: ["study", "work", "tourist", "immigration"],
+    processingTime: "3–10 weeks",
+    difficulty: "Moderate",
+  },
+  {
+    slug: "netherlands",
+    name: "Netherlands",
+    flag: "🇳🇱",
+    region: "Europe",
+    description: "The Netherlands offers the highly regarded Highly Skilled Migrant (HSM) visa, student permits, and a startup visa for entrepreneurs.",
+    visaTypes: ["study", "work", "tourist", "immigration"],
+    processingTime: "2–6 weeks",
+    difficulty: "Easy",
+  },
+  {
+    slug: "sweden",
+    name: "Sweden",
+    flag: "🇸🇪",
+    region: "Europe",
+    description: "Sweden's Migration Agency (Migrationsverket) processes student permits, work permits, and residency applications with transparent timelines.",
+    visaTypes: ["study", "work", "tourist", "immigration"],
+    processingTime: "4–12 weeks",
+    difficulty: "Moderate",
+  },
+  {
+    slug: "norway",
+    name: "Norway",
+    flag: "🇳🇴",
+    region: "Europe",
+    description: "Norway provides student permits, skilled worker visas, and family immigration through UDI (Directorate of Immigration).",
+    visaTypes: ["study", "work", "tourist", "immigration"],
+    processingTime: "4–12 weeks",
+    difficulty: "Moderate",
+  },
+  {
+    slug: "switzerland",
+    name: "Switzerland",
+    flag: "🇨🇭",
+    region: "Europe",
+    description: "Switzerland offers residence and work permits managed by cantonal migration offices, along with student permits for its elite universities.",
+    visaTypes: ["study", "work", "tourist", "immigration"],
+    processingTime: "4–10 weeks",
+    difficulty: "Complex",
+  },
+];
+
+export function getCountryBySlug(slug: string): Country | undefined {
+  return COUNTRIES.find((c) => c.slug === slug);
+}
