@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Global Visa Guide Hub",
   description:
     "Privacy Policy for Global Visa Guide Hub. Learn how we collect, use, and protect your personal data in accordance with GDPR and applicable privacy law.",
-  alternates: { canonical: "https://globalvisaguidehub.com/privacy" },
+  alternates: { canonical: "https://www.visaprocessinfo.com/privacy" },
 };
 
 export default function PrivacyPage() {
@@ -201,7 +201,7 @@ export default function PrivacyPage() {
               If you have questions, concerns, or requests regarding this Privacy Policy or your
               personal data, please contact us at:{" "}
               <Link href="/contact" className="text-primary-700 underline">Contact page</Link> or
-              via email at privacy@globalvisaguidehub.com.
+              via email at privacy@www.visaprocessinfo.com.
             </p>
           </section>
 

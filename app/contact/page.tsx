@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Contact Us | Global Visa Guide Hub",
   description:
     "Contact the Global Visa Guide Hub team for content corrections, partnership inquiries, advertising, or general questions about our visa and immigration guides.",
-  alternates: { canonical: "https://globalvisaguidehub.com/contact" },
+  alternates: { canonical: "https://www.visaprocessinfo.com/contact" },
 };
 
 const TOPICS = [
@@ -123,7 +123,7 @@ export default function ContactPage() {
                   <span className="text-xl shrink-0">📧</span>
                   <div>
                     <p className="font-medium text-gray-900">Email</p>
-                    <p className="text-gray-600">contact@globalvisaguidehub.com</p>
+                    <p className="text-gray-600">contact@www.visaprocessinfo.com</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: [],
     },
-    sitemap: "https://globalvisaguidehub.com/sitemap.xml",
+    sitemap: "https://www.visaprocessinfo.com/sitemap.xml",
   };
 }

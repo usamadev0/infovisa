@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: article.title,
     description: article.metaDescription,
     keywords: article.tags,
-    alternates: { canonical: `https://globalvisaguidehub.com/blog/${article.slug}` },
+    alternates: { canonical: `https://www.visaprocessinfo.com/blog/${article.slug}` },
     openGraph: {
       title: article.title,
       description: article.metaDescription,
@@ -63,13 +63,13 @@ export default async function BlogPostPage({ params }: Props) {
   const articleLd = articleSchema({
     title: article.title,
     description: article.metaDescription,
-    url: `https://globalvisaguidehub.com/blog/${article.slug}`,
+    url: `https://www.visaprocessinfo.com/blog/${article.slug}`,
     publishedAt: article.publishedAt,
   });
   const breadcrumbLd = breadcrumbSchema([
-    { name: "Home", url: "https://globalvisaguidehub.com" },
-    { name: "Blog", url: "https://globalvisaguidehub.com/blog" },
-    { name: article.title, url: `https://globalvisaguidehub.com/blog/${article.slug}` },
+    { name: "Home", url: "https://www.visaprocessinfo.com" },
+    { name: "Blog", url: "https://www.visaprocessinfo.com/blog" },
+    { name: article.title, url: `https://www.visaprocessinfo.com/blog/${article.slug}` },
   ]);
 
   return (

@@ -41,7 +41,7 @@ export function articleSchema(input: ArticleSchemaInput) {
     publisher: {
       "@type": "Organization",
       name: "Global Visa Guide Hub",
-      url: "https://globalvisaguidehub.com",
+      url: "https://www.visaprocessinfo.com",
     },
   };
 }
@@ -64,12 +64,12 @@ export function websiteSchema() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Global Visa Guide Hub",
-    url: "https://globalvisaguidehub.com",
+    url: "https://www.visaprocessinfo.com",
     description:
       "Comprehensive visa and immigration guides for students, workers, tourists, and immigrants worldwide.",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://globalvisaguidehub.com/blog?q={search_term_string}",
+      target: "https://www.visaprocessinfo.com/blog?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
   };

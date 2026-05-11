@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${visa.name} Guide ${new Date().getFullYear()} — Requirements, Process & Countries`,
     description: `Complete ${visa.name.toLowerCase()} guide for ${new Date().getFullYear()}. Requirements, step-by-step process, fees, and country-specific information for 15+ destinations.`,
-    alternates: { canonical: `https://globalvisaguidehub.com/visa/${visa.slug}` },
+    alternates: { canonical: `https://www.visaprocessinfo.com/visa/${visa.slug}` },
   };
 }
 
@@ -39,9 +39,9 @@ export default async function VisaTypePage({ params }: Props) {
 
   const faqLd = faqSchema(visa.faqs);
   const breadcrumbLd = breadcrumbSchema([
-    { name: "Home", url: "https://globalvisaguidehub.com" },
-    { name: "Visa Types", url: "https://globalvisaguidehub.com/#visa-types" },
-    { name: visa.name, url: `https://globalvisaguidehub.com/visa/${visa.slug}` },
+    { name: "Home", url: "https://www.visaprocessinfo.com" },
+    { name: "Visa Types", url: "https://www.visaprocessinfo.com/#visa-types" },
+    { name: visa.name, url: `https://www.visaprocessinfo.com/visa/${visa.slug}` },
   ]);
 
   return (

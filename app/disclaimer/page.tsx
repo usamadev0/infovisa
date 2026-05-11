@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Disclaimer | Global Visa Guide Hub",
   description:
     "Full disclaimer for Global Visa Guide Hub. Our content is for general informational purposes only and does not constitute legal or immigration advice. Read before using this website.",
-  alternates: { canonical: "https://globalvisaguidehub.com/disclaimer" },
+  alternates: { canonical: "https://www.visaprocessinfo.com/disclaimer" },
 };
 
 export default function DisclaimerPage() {

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Global Visa Guide Hub — Visa & Immigration Guides for 15+ Countries",
   description:
     "Your ultimate resource for study visas, work visas, tourist visas, and immigration guides for USA, UK, Canada, Australia, Germany, and 10+ more countries. Updated for 2026.",
-  alternates: { canonical: "https://globalvisaguidehub.com" },
+  alternates: { canonical: "https://www.visaprocessinfo.com" },
 };
 
 const homeFaqs = [

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "permanent residency",
     "visa requirements 2026",
   ],
-  metadataBase: new URL("https://globalvisaguidehub.com"),
+  metadataBase: new URL("https://www.visaprocessinfo.com"),
   openGraph: {
     siteName: "Global Visa Guide Hub",
     type: "website",

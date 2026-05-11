@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Visa & Immigration Blog — 500+ Guides for 2026",
   description:
     "Browse 500+ visa and immigration guides covering study visas, work permits, tourist visas, and PR pathways for the USA, UK, Canada, Australia, Germany, and more.",
-  alternates: { canonical: "https://globalvisaguidehub.com/blog" },
+  alternates: { canonical: "https://www.visaprocessinfo.com/blog" },
 };
 
 export default function BlogPage() {

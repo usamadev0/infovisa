@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: process.title,
     description: process.metaDescription,
-    alternates: { canonical: `https://globalvisaguidehub.com/process/${process.slug}` },
+    alternates: { canonical: `https://www.visaprocessinfo.com/process/${process.slug}` },
   };
 }
 
@@ -37,9 +37,9 @@ export default async function ProcessPage({ params }: Props) {
 
   const faqLd = faqSchema(process.faqs);
   const breadcrumbLd = breadcrumbSchema([
-    { name: "Home", url: "https://globalvisaguidehub.com" },
-    { name: "Apply Process", url: "https://globalvisaguidehub.com/process/study-visa-application" },
-    { name: process.title, url: `https://globalvisaguidehub.com/process/${process.slug}` },
+    { name: "Home", url: "https://www.visaprocessinfo.com" },
+    { name: "Apply Process", url: "https://www.visaprocessinfo.com/process/study-visa-application" },
+    { name: process.title, url: `https://www.visaprocessinfo.com/process/${process.slug}` },
   ]);
 
   return (

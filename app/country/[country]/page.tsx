@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${country.name} Visa Guide ${new Date().getFullYear()} — Study, Work, Tourist & Immigration`,
     description: `Complete ${country.name} visa guide for ${new Date().getFullYear()}. Requirements, fees, processing times, embassy information, and step-by-step guides for all visa types.`,
-    alternates: { canonical: `https://globalvisaguidehub.com/country/${country.slug}` },
+    alternates: { canonical: `https://www.visaprocessinfo.com/country/${country.slug}` },
   };
 }
 
@@ -108,9 +108,9 @@ export default async function CountryPage({ params }: Props) {
 
   const faqLd = faqSchema(faqs);
   const breadcrumbLd = breadcrumbSchema([
-    { name: "Home", url: "https://globalvisaguidehub.com" },
-    { name: "Countries", url: "https://globalvisaguidehub.com/#countries" },
-    { name: country.name, url: `https://globalvisaguidehub.com/country/${country.slug}` },
+    { name: "Home", url: "https://www.visaprocessinfo.com" },
+    { name: "Countries", url: "https://www.visaprocessinfo.com/#countries" },
+    { name: country.name, url: `https://www.visaprocessinfo.com/country/${country.slug}` },
   ]);
 
   return (

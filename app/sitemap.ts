@@ -4,7 +4,7 @@ import { VISA_TYPES } from "@/data/visa-types";
 import { getAllSlugs } from "@/lib/articles";
 import { getAllProcessSlugs } from "@/data/processes";
 
-const BASE = "https://globalvisaguidehub.com";
+const BASE = "https://www.visaprocessinfo.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
