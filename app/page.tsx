@@ -384,6 +384,275 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── SEO CONTENT SECTIONS ────────────────────────────────────────── */}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16">
+
+            {/* 2026 Visa Landscape */}
+            <div className="space-y-5">
+              <h2 className="text-2xl font-bold text-gray-900">The 2026 International Visa Landscape</h2>
+              <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
+                <p>
+                  International migration and visa applications are at an all-time high in 2026. Post-pandemic
+                  pent-up demand for international study, work, and travel has combined with long-term structural
+                  trends — the global talent shortage, the rise of remote work, digital nomadism, and expanding
+                  investment migration programmes — to create one of the most active visa application environments
+                  in history. Millions of people worldwide are navigating visa processes this year, many for the
+                  first time.
+                </p>
+                <p>
+                  At the same time, the visa application landscape has become more complex. Most major destination
+                  countries have reformed their immigration systems significantly in the past three years.
+                  The UK introduced the Skilled Worker Visa in 2021 and has since revised salary thresholds
+                  multiple times, most recently raising the general threshold to £38,700. Canada's Express Entry
+                  system now draws candidates by occupation category in addition to general draws. Australia
+                  has reformed its SkillSelect programme to address critical skills shortages. Germany enacted
+                  the most comprehensive reform of its immigration law in decades, creating new pathways for
+                  skilled workers without prior German recognition of their qualifications.
+                </p>
+                <p>
+                  The Gulf region is undergoing a transformation. The UAE's Golden Visa, Green Visa, and
+                  Freelance Permit are attracting hundreds of thousands of skilled professionals and entrepreneurs.
+                  Saudi Arabia's Vision 2030 programme is opening the country to foreign workers and tourists
+                  in unprecedented ways. Turkey has emerged as a popular destination for investors seeking
+                  citizenship by investment, as well as for digital nomads drawn by low costs and favourable
+                  e-visa access.
+                </p>
+                <p>
+                  Navigating this environment requires more than basic checklist information. It requires
+                  understanding the strategic landscape — which countries are prioritising which skill sets,
+                  where processing times are fastest, which pathways lead to permanent residency, and how
+                  different visa categories connect to long-term immigration goals. Our guides are designed
+                  to provide exactly this level of strategic insight, not just lists of required documents.
+                </p>
+              </div>
+            </div>
+
+            {/* Country Difficulty Rankings */}
+            <div className="space-y-5">
+              <h2 className="text-2xl font-bold text-gray-900">Visa Difficulty — Which Countries Are Easiest and Hardest?</h2>
+              <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
+                <p>
+                  One of the most common questions from visa applicants is: "Which country is easiest to get
+                  a visa for?" The honest answer is that it depends on your nationality, your purpose of travel,
+                  your income and assets, and your application history. But some general patterns hold across
+                  applicant profiles.
+                </p>
+                <p>
+                  <strong className="text-gray-800">Generally more straightforward for tourists:</strong> The UAE
+                  and Turkey offer e-visas that are approved within minutes or hours for most nationalities. Many
+                  European Schengen countries are accessible for well-documented tourist applications, though refusal
+                  rates vary by consulate and applicant nationality. Canada's eTA for visa-exempt nationals is
+                  almost automatic. Australia's Electronic Travel Authority (ETA) for eligible passport holders
+                  is similarly straightforward.
+                </p>
+                <p>
+                  <strong className="text-gray-800">More complex for workers and students:</strong> Work visas for
+                  the UK, USA, Canada, and Australia require employer sponsorship, skills assessments, or
+                  points-based eligibility that takes months to build. The US H-1B visa system runs a lottery
+                  with a registration-to-cap ratio that has made it effectively inaccessible for many applicants.
+                  Canada's Express Entry is meritocratic but competitive — Comprehensive Ranking System (CRS)
+                  cut-off scores in recent years have ranged from 481 to 543 for general draws.
+                </p>
+                <p>
+                  <strong className="text-gray-800">New emerging pathways:</strong> Germany's opportunity card
+                  (Chancenkarte), launched under the 2024 Skilled Immigration Act reforms, allows skilled workers
+                  to enter Germany to seek employment without a prior job offer — a significant change from
+                  traditional work visa requirements. Portugal's D8 Digital Nomad Visa and the Netherlands'
+                  Orientation Year permit for recent graduates are similarly innovative pathways attracting
+                  significant interest.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-gray-50 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16">
+
+            {/* Study vs Work comparison */}
+            <div className="space-y-5">
+              <h2 className="text-2xl font-bold text-gray-900">Study Visa vs Work Visa — Choosing the Right Pathway</h2>
+              <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
+                <p>
+                  For many internationally mobile professionals, the choice between a study visa pathway and
+                  a direct work visa pathway is one of the most consequential decisions in their immigration
+                  journey. Each has distinct advantages, costs, timelines, and long-term implications.
+                </p>
+                <p>
+                  <strong className="text-gray-800">The study visa pathway</strong> involves studying at a
+                  recognised institution in the destination country, which typically grants access to part-time
+                  work rights during study and post-study work rights after graduation. The UK Graduate Route
+                  allows international graduates to stay and work for 2 years after graduation (3 for PhD
+                  graduates). Canada's Post-Graduation Work Permit (PGWP) grants up to 3 years of open work
+                  authorisation and generates Canadian work experience valuable for Express Entry. Australia's
+                  Temporary Graduate visa (subclass 485) provides 2–4 years of post-study work rights depending
+                  on the degree level and study location.
+                </p>
+                <p>
+                  The study pathway is longer and more expensive in direct costs (tuition, living expenses),
+                  but it builds local qualifications, local work experience, and local professional networks —
+                  all of which significantly strengthen subsequent permanent residency applications. It is
+                  particularly valuable for applicants whose overseas qualifications may not be directly
+                  recognised or who lack the specific work experience required for skilled worker visas.
+                </p>
+                <p>
+                  <strong className="text-gray-800">The direct work visa pathway</strong> requires an employer
+                  willing to sponsor you (UK Skilled Worker, Australia TSS), meeting points thresholds through
+                  existing skills and experience (Canada Express Entry, Australia SkillSelect), or self-employment
+                  and business credentials (UK Innovator Founder, Canada Start-up Visa). This pathway is faster
+                  for experienced professionals already working in high-demand fields, but requires more immediate
+                  eligibility and typically more upfront employer engagement.
+                </p>
+                <p>
+                  The best pathway depends heavily on your current qualifications, work experience, age, English
+                  language proficiency, financial resources, and long-term goals. Our country-specific guides
+                  walk through both pathways in detail for each destination so you can make an informed decision
+                  based on your personal profile.
+                </p>
+              </div>
+            </div>
+
+            {/* Top 10 documents guide */}
+            <div className="space-y-5">
+              <h2 className="text-2xl font-bold text-gray-900">The 10 Documents That Determine Most Visa Outcomes</h2>
+              <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
+                <p>
+                  After analysing thousands of visa application outcomes, immigration officers consistently
+                  report that a small set of core documents — and the quality with which they are prepared —
+                  account for the majority of approval and refusal decisions. Understanding what these documents
+                  are and how to prepare them correctly is the single most impactful thing any applicant can do
+                  to improve their chances.
+                </p>
+                <ol className="space-y-3">
+                  <li className="flex gap-3">
+                    <span className="shrink-0 font-bold text-primary-700">1.</span>
+                    <div><strong className="text-gray-800">Bank statements (3–6 months):</strong> The most commonly requested financial document and the one most often submitted incorrectly. Officers look for consistent balances, income sources that match your stated employment, and funds that have been present for an adequate period — not recently deposited lump sums.</div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="shrink-0 font-bold text-primary-700">2.</span>
+                    <div><strong className="text-gray-800">Employment letter / employer confirmation:</strong> Must state your position, salary, employment start date, nature of the business, and — crucially for tourist and visitor visas — confirmation that you have approved leave to travel and your position will be held for you.</div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="shrink-0 font-bold text-primary-700">3.</span>
+                    <div><strong className="text-gray-800">Travel history and passport:</strong> Your history of international travel — where you've been, how long you stayed, whether you returned as required — is one of the strongest predictors of future compliance. A clean travel history demonstrating respect for visa conditions substantially strengthens applications.</div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="shrink-0 font-bold text-primary-700">4.</span>
+                    <div><strong className="text-gray-800">Accommodation proof:</strong> Hotel bookings, host invitation letters, or rental agreements. The key is that your planned accommodation matches your stated itinerary and the duration of your intended stay.</div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="shrink-0 font-bold text-primary-700">5.</span>
+                    <div><strong className="text-gray-800">Purpose of travel documentation:</strong> For business visas, this is a business invitation letter from the host organisation. For tourism, a credible itinerary. For study, an unconditional or conditional offer letter from a registered institution. The documentation must be consistent with and supportive of your stated purpose.</div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="shrink-0 font-bold text-primary-700">6.</span>
+                    <div><strong className="text-gray-800">Ties to home country:</strong> For visitor visas especially, officers assess the risk that you will overstay. Property ownership, immediate family remaining at home, stable long-term employment, and business ownership are all evidence of strong ties that make overstaying less likely.</div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="shrink-0 font-bold text-primary-700">7.</span>
+                    <div><strong className="text-gray-800">English language test results:</strong> Required for study and most work visa categories. IELTS and TOEFL are most widely accepted. Minimum scores vary by visa category and institution — always verify the exact requirements for your specific application.</div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="shrink-0 font-bold text-primary-700">8.</span>
+                    <div><strong className="text-gray-800">Educational credentials and skill assessments:</strong> Degree certificates, transcripts, and for countries with points-based systems, skills assessment outcomes from the relevant assessment authority. Overseas qualifications sometimes require formal recognition before they can be used in an immigration application.</div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="shrink-0 font-bold text-primary-700">9.</span>
+                    <div><strong className="text-gray-800">Health and character clearances:</strong> Many long-term visas require police clearance certificates from all countries where you have lived for an extended period, and a medical examination from an authorised physician. These take time to obtain and should be requested early in the application process.</div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="shrink-0 font-bold text-primary-700">10.</span>
+                    <div><strong className="text-gray-800">Cover letter / personal statement:</strong> Often underestimated, a well-written cover letter that clearly explains your purpose, your ties to home, your financial situation, and your immigration history in coherent narrative form can significantly improve the impression your application makes — especially when individual documents are strong but the overall picture needs explanation.</div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Understanding the Global Immigration System in 2026</h2>
+          <div className="grid lg:grid-cols-3 gap-8 text-sm text-gray-600 leading-relaxed">
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold text-gray-900">Points-Based Systems</h3>
+              <p>
+                Points-based immigration systems have become the gold standard for skilled worker immigration
+                in the English-speaking world and are spreading globally. Canada, Australia, and the UK all
+                use points to rank applicants and issue invitations to apply, allowing countries to selectively
+                attract the skills and profiles that best meet their labour market needs.
+              </p>
+              <p>
+                Canada's Comprehensive Ranking System (CRS) scores applicants on age, education, language
+                proficiency, work experience, and adaptability factors, with additional points available for
+                job offers, Canadian qualifications, and provincial nominations. The system creates clear
+                incentives for applicants to invest in their profile — improving language scores, gaining
+                additional qualifications, or obtaining a provincial nomination can dramatically increase
+                an applicant's CRS score.
+              </p>
+              <p>
+                Australia's SkillSelect system operates similarly, with the added complexity of occupation-
+                specific demand signals — certain occupations are invited at lower points thresholds because
+                Australia has identified them as critical shortages. Understanding which occupations are in
+                demand in each country is therefore a key strategic consideration for anyone planning a
+                skilled migration pathway.
+              </p>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold text-gray-900">The Rise of Digital Nomad and Remote Work Visas</h3>
+              <p>
+                One of the most significant visa policy developments of the past three years has been the
+                proliferation of digital nomad and remote work visas. As remote work became normalised
+                during and after the pandemic, dozens of countries introduced new visa categories designed
+                to attract location-independent workers who earn income from employers or clients outside
+                the host country.
+              </p>
+              <p>
+                These visas vary enormously in their requirements and benefits. Some, like Germany's
+                freelance visa (Freiberufler), are long-established. Others, like Portugal's D8 Digital
+                Nomad Visa, Spain's Startups Act Digital Nomad Visa, and the UAE's Virtual Working
+                Programme, are recent innovations. Most require proof of regular income above a specified
+                threshold (typically 3–5 times the local minimum wage) and health insurance coverage.
+              </p>
+              <p>
+                Digital nomad visas typically do not grant the right to work for local employers, only
+                to continue working remotely for overseas employers or clients. They also generally do not
+                count towards permanent residency accumulation in most countries, though some (like
+                Portugal's) can serve as a stepping stone towards long-term residency.
+              </p>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold text-gray-900">Investor Visas and Citizenship by Investment</h3>
+              <p>
+                Citizenship by Investment (CBI) and Residency by Investment (RBI) programmes allow high-net-worth
+                individuals to obtain citizenship or residency rights in exchange for qualifying investments —
+                typically in government bonds, real estate, business creation, or direct government contributions.
+                These programmes have grown significantly in both number and popularity.
+              </p>
+              <p>
+                The Caribbean nations — St Kitts and Nevis, Antigua and Barbuda, Grenada, Dominica, St Lucia —
+                offer the most established CBI programmes, with processing times as short as 45 days and
+                investment thresholds starting at around $100,000. European CBI programmes have faced increasing
+                scrutiny: the EU pressured Malta to reform its programme, and several countries that previously
+                offered Golden Visas (including Portugal and Ireland) have made their programmes significantly
+                more restrictive in response to concerns about their effect on local housing markets.
+              </p>
+              <p>
+                Turkey's Citizenship by Investment programme, which requires a minimum $400,000 real estate
+                purchase or $500,000 capital deposit, has attracted significant interest from investors in
+                the Middle East, Central Asia, and South Asia. Turkish citizenship provides visa-free or
+                visa-on-arrival access to 110+ countries, making it a popular second citizenship option.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── POPULAR COUNTRIES STRIP ────────────────────────────────────────── */}
       <section className="py-14 bg-gray-50 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

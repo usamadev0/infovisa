@@ -205,6 +205,209 @@ export default function PrivacyPage() {
             </p>
           </section>
 
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-3">11. Legal Basis for Processing (GDPR)</h2>
+            <p className="text-gray-700 leading-relaxed mb-3">
+              For users in the European Economic Area and the United Kingdom, we process your personal data
+              on the following legal bases as defined under the General Data Protection Regulation (GDPR)
+              and the UK GDPR:
+            </p>
+            <div className="space-y-4 text-gray-700 text-sm">
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <p className="font-semibold text-gray-900 mb-1">Legitimate Interests (Article 6(1)(f) GDPR)</p>
+                <p className="leading-relaxed">
+                  We process anonymised analytics data to understand how our website is used and to improve
+                  the quality and relevance of our content. This processing serves our legitimate interest in
+                  providing a high-quality immigration information resource. We have assessed this legitimate
+                  interest against your privacy rights and concluded that, given the anonymised and aggregated
+                  nature of the data, our interests do not override your fundamental rights and freedoms.
+                </p>
+              </div>
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <p className="font-semibold text-gray-900 mb-1">Contract Performance (Article 6(1)(b) GDPR)</p>
+                <p className="leading-relaxed">
+                  When you contact us via our contact form, we process your name and email address to respond
+                  to your enquiry. This processing is necessary to fulfil your request for a response from us.
+                  Without processing this information, we would be unable to reply to your message.
+                </p>
+              </div>
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <p className="font-semibold text-gray-900 mb-1">Consent (Article 6(1)(a) GDPR)</p>
+                <p className="leading-relaxed">
+                  Where we use advertising cookies or marketing-related tracking technologies, we rely on your
+                  consent as the legal basis for processing. You can withdraw your consent at any time by
+                  adjusting your cookie preferences through our cookie consent mechanism or through your
+                  browser settings. Withdrawal of consent does not affect the lawfulness of processing
+                  carried out prior to withdrawal.
+                </p>
+              </div>
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <p className="font-semibold text-gray-900 mb-1">Legal Obligation (Article 6(1)(c) GDPR)</p>
+                <p className="leading-relaxed">
+                  In certain limited circumstances, we may be required to process personal data to comply
+                  with a legal obligation — for example, to respond to a lawful request from a government
+                  authority or court. We will only do so where we are legally required and will inform you
+                  to the extent permitted by law.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-3">12. International Data Transfers</h2>
+            <p className="text-gray-700 leading-relaxed mb-3">
+              We use certain third-party service providers (including Google Analytics and Google AdSense)
+              whose servers are located in the United States. When personal data is transferred from the
+              European Economic Area or the United Kingdom to the United States, we rely on appropriate
+              safeguards to ensure that your data receives a level of protection equivalent to that in
+              the EEA and UK.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-3">
+              Google participates in the EU-US Data Privacy Framework and provides appropriate safeguards
+              for transatlantic data transfers. You can find more information about Google's data transfer
+              mechanisms in their Privacy Policy. For other third-party providers, we ensure that
+              appropriate Standard Contractual Clauses (SCCs) are in place where required.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              Our website is hosted on infrastructure that may involve data processing in multiple
+              jurisdictions. We ensure that any hosting arrangements we use comply with applicable
+              data protection law and include appropriate contractual protections.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-3">13. Data Minimisation and Purpose Limitation</h2>
+            <p className="text-gray-700 leading-relaxed mb-3">
+              We apply data minimisation principles throughout our operations. This means we only collect
+              personal data that is necessary for the specific purpose for which it is collected. We do not
+              collect data speculatively or "just in case" it might be useful. We do not use data collected
+              for one purpose for a different, incompatible purpose without your knowledge.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-3">
+              Analytics data is anonymised at the point of collection to the extent technically possible.
+              IP addresses are truncated before being stored. We do not create individual user profiles
+              based on browsing behaviour. We use aggregate and statistical analysis of anonymised data
+              to understand content performance and user needs.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              Contact form data is used only to respond to the specific enquiry submitted and is not
+              retained beyond the period necessary to fulfil that purpose. We do not add contact form
+              submitters to any mailing list without explicit opt-in. We do not share contact form data
+              with any third party except as required by law.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-3">14. Your Rights in Practice — How to Exercise Them</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              We are committed to making it straightforward for you to exercise your privacy rights. Here
+              is practical guidance on how to exercise each right:
+            </p>
+            <div className="space-y-4 text-gray-700 text-sm">
+              <div>
+                <p className="font-semibold text-gray-900 mb-1">Right of Access</p>
+                <p className="leading-relaxed">
+                  You can request a copy of any personal data we hold about you. Given that we collect
+                  very limited personal data (only contact form submissions, which are linked to your
+                  email address), an access request typically results in us confirming whether we hold
+                  any correspondence from you and providing a copy. Please submit access requests via
+                  our Contact page with the subject line "Data Subject Access Request."
+                </p>
+              </div>
+              <div>
+                <p className="font-semibold text-gray-900 mb-1">Right to Erasure</p>
+                <p className="leading-relaxed">
+                  You can request that we delete personal data we hold about you. For contact form
+                  submissions, this means requesting deletion of any correspondence we hold that can
+                  be linked to your email address. Note that we retain analytics data in anonymised
+                  form only — this data cannot be linked to you individually and therefore cannot be
+                  subject to erasure requests.
+                </p>
+              </div>
+              <div>
+                <p className="font-semibold text-gray-900 mb-1">Right to Object to Processing</p>
+                <p className="leading-relaxed">
+                  If you wish to object to our processing of your data on the basis of legitimate interests,
+                  you can do so by contacting us. You can also object to the use of advertising cookies by
+                  adjusting your browser settings or using Google's Ad Settings to opt out of personalised
+                  advertising.
+                </p>
+              </div>
+              <div>
+                <p className="font-semibold text-gray-900 mb-1">Right to Lodge a Complaint</p>
+                <p className="leading-relaxed">
+                  If you believe we have processed your personal data in a manner that violates GDPR or
+                  UK GDPR, you have the right to lodge a complaint with your national supervisory authority.
+                  In the UK, this is the Information Commissioner's Office (ICO) at ico.org.uk. In the EU,
+                  it is the supervisory authority in your member state of residence or place of work.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-3">15. California Privacy Rights (CCPA)</h2>
+            <p className="text-gray-700 leading-relaxed mb-3">
+              If you are a California resident, the California Consumer Privacy Act (CCPA) provides you
+              with specific rights regarding your personal information. This section describes your
+              CCPA rights and explains how to exercise them.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-3">
+              <strong>Right to Know:</strong> You have the right to request that we disclose information
+              about the categories and specific pieces of personal information we have collected about you,
+              the categories of sources from which it was collected, the purpose for collecting it, and
+              the categories of third parties with whom we share it.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-3">
+              <strong>Right to Delete:</strong> You have the right to request that we delete personal
+              information we have collected from you, subject to certain exceptions where retention is
+              required by law or necessary for our legitimate operations.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-3">
+              <strong>Right to Opt-Out of Sale:</strong> We do not sell your personal information to
+              third parties. We do not share personal information with third parties for cross-context
+              behavioural advertising in a manner that would constitute a "sale" under the CCPA.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              <strong>Non-Discrimination:</strong> We will not discriminate against you for exercising
+              any of your CCPA rights. We do not offer different levels of service based on whether
+              you exercise privacy rights.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-3">16. Security Measures in Detail</h2>
+            <p className="text-gray-700 leading-relaxed mb-3">
+              We take the security of your information seriously and implement a range of technical and
+              organisational security measures appropriate to the nature and volume of data we process.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-3">
+              <strong>Encryption:</strong> All data transmitted between your browser and our website is
+              encrypted using Transport Layer Security (TLS). We maintain an A-grade TLS configuration
+              and use HTTPS exclusively — all HTTP traffic is automatically redirected to HTTPS.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-3">
+              <strong>Access Controls:</strong> Access to our content management systems and any data
+              we hold is restricted to authorised team members only. We use strong, unique passwords
+              and multi-factor authentication for all administrative access. We conduct periodic access
+              reviews to ensure that access rights remain appropriate.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-3">
+              <strong>Third-Party Processor Security:</strong> We select third-party service providers
+              (hosting, analytics, email) that demonstrate appropriate security practices. We review
+              the security certifications and privacy practices of our third-party processors before
+              engaging them and monitor for any security incidents they may experience.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              <strong>Incident Response:</strong> We maintain an incident response procedure for data
+              security events. In the event of a data breach that is likely to result in a risk to your
+              rights and freedoms, we will notify the relevant supervisory authority within 72 hours of
+              becoming aware of the breach, as required by GDPR Article 33. Where the breach is likely
+              to result in a high risk to your rights and freedoms, we will also notify affected individuals
+              directly without undue delay.
+            </p>
+          </section>
+
           <div className="pt-4 border-t border-gray-200 flex flex-wrap gap-4 text-sm">
             <Link href="/disclaimer" className="text-primary-700 hover:text-primary-900 underline">
               Disclaimer

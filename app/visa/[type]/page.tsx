@@ -152,6 +152,32 @@ export default async function VisaTypePage({ params }: Props) {
               </div>
             </section>
 
+            {/* Long-form content */}
+            {visa.longFormContent && visa.longFormContent.length > 0 && (
+              <section className="space-y-10">
+                <h2 className="text-2xl font-bold text-gray-900">Complete {visa.name} Guide 2026</h2>
+                {visa.longFormContent.map((section, i) => (
+                  <div key={i} className="border-t border-gray-100 pt-8 first:border-0 first:pt-0">
+                    <h3 className="text-xl font-bold text-primary-800 mb-4">{section.heading}</h3>
+                    <div className="space-y-4">
+                      {section.body.split("\n\n").map((para, j) => (
+                        <p
+                          key={j}
+                          className="text-sm text-gray-700 leading-relaxed"
+                          dangerouslySetInnerHTML={{
+                            __html: para
+                              .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+                              .replace(/\*([^*]+)\*/g, "<em>$1</em>")
+                              .replace(/\n/g, "<br/>"),
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </section>
+            )}
+
             {/* FAQ */}
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-5">
