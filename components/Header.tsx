@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { COUNTRIES } from "@/data/countries";
 import { VISA_TYPES } from "@/data/visa-types";
@@ -121,7 +122,13 @@ export default function Header() {
                       href={`/country/${c.slug}`}
                       className="flex items-center gap-2 px-3 py-2 rounded-xl text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-800 transition-colors"
                     >
-                      <span className="text-base">{c.flag}</span>
+                      <Image
+                        src={`https://flagcdn.com/w40/${c.code}.png`}
+                        alt={`${c.name} flag`}
+                        width={20}
+                        height={15}
+                        className="rounded-sm object-cover shadow-sm"
+                      />
                       <span className="font-medium">{c.name}</span>
                     </Link>
                   ))}
@@ -241,7 +248,14 @@ export default function Header() {
                       onClick={() => setMenuOpen(false)}
                       className="flex items-center gap-2 py-2 px-2 text-sm text-gray-700 hover:text-primary-800 hover:bg-primary-50 rounded-lg transition-colors"
                     >
-                      <span>{c.flag}</span><span className="truncate">{c.name}</span>
+                      <Image
+                        src={`https://flagcdn.com/w40/${c.code}.png`}
+                        alt={`${c.name} flag`}
+                        width={20}
+                        height={15}
+                        className="rounded-sm object-cover shadow-sm"
+                      />
+                      <span className="truncate">{c.name}</span>
                     </Link>
                   ))}
                 </div>
