@@ -222,36 +222,39 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
-            {VISA_TYPES.map((v, i) => {
+          {/* Mobile/tablet (< lg): 1-column horizontal cards — icon left, text right */}
+          {/* Desktop (lg+): 5-column vertical card grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-3 lg:gap-6">
+            {VISA_TYPES.map((v) => {
               const colors = visaColors[v.slug] ?? visaColors.tourist;
               const IconComp = VISA_LUCIDE[v.slug] ?? Globe;
-              // On md (3-col), 5 cards = 3+2 → shift 4th card to col 2 so last row is [_,4,5] (centered)
-              const mdCenter = VISA_TYPES.length === 5 && i === 3 ? "md:col-start-2 lg:col-start-auto" : "";
               return (
                 <Link
                   key={v.slug}
                   href={`/visa/${v.slug}`}
-                  className={`group relative overflow-hidden rounded-2xl border border-gray-100 bg-white hover:border-transparent hover:shadow-xl transition-all duration-300 ${mdCenter}`}
+                  className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white hover:border-transparent hover:shadow-xl transition-all duration-300"
                 >
-                  {/* Gradient top bar */}
-                  <div className={`h-1.5 md:h-2 w-full bg-gradient-to-r ${colors.from} ${colors.to}`} />
+                  {/* Colour accent bar — thin on mobile, standard on desktop */}
+                  <div className={`h-1 lg:h-2 w-full bg-gradient-to-r ${colors.from} ${colors.to}`} />
 
-                  {/* Mobile: row layout (icon left, text right) → md+: column layout */}
-                  <div className="flex md:flex-col items-center md:items-start gap-4 md:gap-0 p-4 md:p-5 lg:p-6 group-hover:bg-gray-50 transition-colors">
-                    <div className={`shrink-0 w-12 h-12 lg:w-14 lg:h-14 rounded-xl lg:rounded-2xl flex items-center justify-center md:mb-4 bg-gradient-to-br ${colors.from} ${colors.to} shadow-md`}>
+                  {/* Layout: horizontal row on mobile/tablet, vertical column on lg+ */}
+                  <div className="flex lg:flex-col items-center lg:items-start gap-4 lg:gap-0 p-4 lg:p-6 group-hover:bg-gray-50 transition-colors">
+                    {/* Icon box */}
+                    <div className={`shrink-0 w-12 h-12 lg:w-14 lg:h-14 rounded-xl lg:rounded-2xl flex items-center justify-center lg:mb-4 bg-gradient-to-br ${colors.from} ${colors.to} shadow-md`}>
                       <IconComp className="w-5 h-5 lg:w-7 lg:h-7 text-white" />
                     </div>
-                    <div className="flex-1 md:flex-none min-w-0">
-                      <h3 className="text-sm md:text-base lg:text-lg font-bold text-gray-900 mb-1 md:mb-2 leading-snug">
+
+                    {/* Text content */}
+                    <div className="flex-1 lg:flex-none min-w-0">
+                      <h3 className="text-sm lg:text-lg font-bold text-gray-900 mb-1 lg:mb-2 leading-snug">
                         {v.name}
                       </h3>
-                      <p className="text-xs md:text-sm text-gray-500 leading-relaxed line-clamp-2 md:line-clamp-3 md:mb-4">
+                      <p className="text-xs lg:text-sm text-gray-500 leading-relaxed line-clamp-2 lg:line-clamp-3 lg:mb-4">
                         {v.shortDescription}
                       </p>
-                      <div className={`mt-2 md:mt-0 inline-flex items-center gap-1 md:gap-1.5 text-xs font-bold ${colors.text} group-hover:gap-2.5 transition-all`}>
+                      <div className={`mt-1.5 lg:mt-0 inline-flex items-center gap-1 lg:gap-1.5 text-xs font-bold ${colors.text} group-hover:gap-2.5 transition-all`}>
                         Full Guide
-                        <ChevronRight className="w-3 h-3 md:w-3.5 md:h-3.5" />
+                        <ChevronRight className="w-3 h-3 lg:w-3.5 lg:h-3.5" />
                       </div>
                     </div>
                   </div>
