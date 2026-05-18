@@ -21,6 +21,19 @@ export const metadata: Metadata = {
     siteName: "VisaProcessInfo",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1436491865332-7a369c3f4d69?w=1200&h=630&auto=format&q=85&fit=crop",
+        width: 1200,
+        height: 630,
+        alt: "VisaProcessInfo — Visa & Immigration Guides",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@visaprocessinfo",
+    images: ["https://images.unsplash.com/photo-1436491865332-7a369c3f4d69?w=1200&h=630&auto=format&q=85&fit=crop"],
   },
   robots: {
     index: true,
