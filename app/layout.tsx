@@ -7,18 +7,18 @@ import { HOMEPAGE_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Global Visa Guide Hub",
-    default: "Global Visa Guide Hub — Visa & Immigration Guides Worldwide",
+    template: "%s | VisaProcessInfo",
+    default: "VisaProcessInfo — Visa & Immigration Guides for 131 Countries",
   },
   description:
-    "Comprehensive visa and immigration guides for students, workers, tourists, and immigrants. Country-specific requirements, step-by-step processes, and expert tips for 15+ countries.",
+    "Comprehensive visa and immigration guides for students, workers, tourists, and immigrants. Country-specific requirements, step-by-step processes, and expert tips for 131 countries — updated for 2026.",
   keywords: HOMEPAGE_KEYWORDS,
   metadataBase: new URL("https://www.visaprocessinfo.com"),
   verification: {
     google: "hnBXp2VAGXmFk2-f-7kfvH7Xd7jwZaT-RZcxxbdVZWs",
   },
   openGraph: {
-    siteName: "Global Visa Guide Hub",
+    siteName: "VisaProcessInfo",
     type: "website",
     locale: "en_US",
   },

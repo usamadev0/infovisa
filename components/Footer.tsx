@@ -1,6 +1,20 @@
 import Link from "next/link";
-import { COUNTRIES } from "@/data/countries";
+import Image from "next/image";
+import { Globe, GraduationCap, Briefcase, Plane, Home, Building2, Newspaper, MapPin } from "lucide-react";
+import { COUNTRIES_EXTENDED } from "@/data/countries-extended";
 import { VISA_TYPES } from "@/data/visa-types";
+
+// Top 8 featured countries for footer links
+const FOOTER_SLUGS = ["usa", "uk", "canada", "australia", "germany", "france", "uae", "japan"];
+const footerCountries = COUNTRIES_EXTENDED.filter((c) => FOOTER_SLUGS.includes(c.slug));
+
+const VISA_ICONS: Record<string, React.ElementType> = {
+  study: GraduationCap,
+  work: Briefcase,
+  tourist: Plane,
+  immigration: Home,
+  business: Building2,
+};
 
 const PROCESS_LINKS = [
   { label: "Apply for Study Visa", href: "/process/study-visa-application" },
@@ -21,11 +35,13 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4 group">
-              <div className="w-9 h-9 bg-primary-700 rounded-xl flex items-center justify-center text-lg">🌐</div>
+            <Link href="/" className="flex items-center gap-2.5 mb-4 group">
+              <div className="w-9 h-9 bg-primary-700 rounded-xl flex items-center justify-center">
+                <Globe className="w-5 h-5 text-white" />
+              </div>
               <div>
-                <span className="font-extrabold text-white text-base">Global Visa </span>
-                <span className="font-extrabold text-accent-400 text-base">Guide Hub</span>
+                <span className="font-extrabold text-white text-base">VisaProcess</span>
+                <span className="font-extrabold text-accent-400 text-base">Info</span>
               </div>
             </Link>
             <p className="text-sm leading-relaxed text-gray-400 max-w-xs">
@@ -40,30 +56,51 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4 text-xs uppercase tracking-wider">Top Countries</h3>
             <ul className="space-y-2">
-              {COUNTRIES.slice(0, 8).map((c) => (
+              {footerCountries.map((c) => (
                 <li key={c.slug}>
-                  <Link href={`/country/${c.slug}`} className="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1.5">
-                    <span>{c.flag}</span>{c.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Visa Types + Legal Pages */}
-          <div>
-            <h3 className="text-white font-semibold mb-4 text-xs uppercase tracking-wider">Visa Types</h3>
-            <ul className="space-y-2 mb-6">
-              {VISA_TYPES.map((v) => (
-                <li key={v.slug}>
-                  <Link href={`/visa/${v.slug}`} className="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1.5">
-                    <span>{v.icon}</span>{v.name}
+                  <Link href={`/${c.slug}-visa-info`} className="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2">
+                    <span className="w-5 h-3.5 rounded-sm overflow-hidden inline-block shrink-0 border border-gray-700">
+                      <Image
+                        src={`https://flagcdn.com/w40/${c.code}.png`}
+                        alt={`${c.name} flag`}
+                        width={20}
+                        height={14}
+                        className="w-full h-full object-cover"
+                        unoptimized
+                      />
+                    </span>
+                    {c.name}
                   </Link>
                 </li>
               ))}
               <li>
+                <Link href="/#countries" className="text-sm text-accent-400 hover:text-accent-300 transition-colors flex items-center gap-1.5 mt-1">
+                  <MapPin className="w-3.5 h-3.5" />
+                  View all 131 countries
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Visa Types */}
+          <div>
+            <h3 className="text-white font-semibold mb-4 text-xs uppercase tracking-wider">Visa Types</h3>
+            <ul className="space-y-2 mb-6">
+              {VISA_TYPES.map((v) => {
+                const IconComp = VISA_ICONS[v.slug] ?? Globe;
+                return (
+                  <li key={v.slug}>
+                    <Link href={`/visa/${v.slug}`} className="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1.5">
+                      <IconComp className="w-3.5 h-3.5 shrink-0" />
+                      {v.name}
+                    </Link>
+                  </li>
+                );
+              })}
+              <li>
                 <Link href="/blog" className="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1.5">
-                  <span>📰</span>Visa Blog
+                  <Newspaper className="w-3.5 h-3.5 shrink-0" />
+                  Visa Blog
                 </Link>
               </li>
             </ul>
@@ -87,7 +124,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-gray-500">
-            © {new Date().getFullYear()} Global Visa Guide Hub. All rights reserved.
+            © {new Date().getFullYear()} VisaProcessInfo. All rights reserved.
           </p>
           <div className="flex gap-5 text-xs text-gray-500">
             <Link href="/about" className="hover:text-white transition-colors">About Us</Link>

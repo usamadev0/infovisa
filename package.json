@@ -11,6 +11,7 @@
     "generate-manifest": "node scripts/generate-manifest.mjs"
   },
   "dependencies": {
+    "lucide-react": "^1.16.0",
     "next": "^16.2.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"

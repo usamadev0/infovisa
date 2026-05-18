@@ -1,19 +1,50 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import {
+  Globe,
+  GraduationCap,
+  Briefcase,
+  Plane,
+  Home,
+  Building2,
+  Search,
+  FileText,
+  ClipboardCheck,
+  BookOpen,
+  CheckCircle2,
+  XCircle,
+  ChevronRight,
+} from "lucide-react";
 import SearchFilter from "@/components/SearchFilter";
 import AdSlot from "@/components/ads/AdSlot";
 import { VISA_TYPES } from "@/data/visa-types";
-import { COUNTRIES } from "@/data/countries";
+import { COUNTRIES_EXTENDED } from "@/data/countries-extended";
 import { faqSchema } from "@/lib/jsonld";
 import { HOMEPAGE_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata: Metadata = {
-  title: "Global Visa Guide Hub — Visa & Immigration Guides for 15+ Countries",
+  title: "VisaProcessInfo — Visa & Immigration Guides for 131 Countries",
   description:
-    "Your ultimate resource for study visas, work visas, tourist visas, and immigration guides for USA, UK, Canada, Australia, Germany, and 10+ more countries. Updated for 2026.",
+    "Your complete resource for study visas, work visas, tourist visas, and immigration guides for 131 countries worldwide. Step-by-step guides, fee breakdowns, and processing times — updated for 2026.",
   alternates: { canonical: "https://www.visaprocessinfo.com" },
   keywords: HOMEPAGE_KEYWORDS,
+};
+
+// 12 featured countries shown in the hero flag strip
+const HERO_SLUGS = ["usa", "uk", "canada", "australia", "germany", "france", "uae", "japan", "netherlands", "singapore", "new-zealand", "switzerland"];
+const heroCountries = COUNTRIES_EXTENDED.filter((c) => HERO_SLUGS.includes(c.slug));
+
+// 24 featured countries for the "Explore" strip at the bottom
+const exploreCountries = COUNTRIES_EXTENDED.slice(0, 24);
+
+// Lucide icon map for VISA_TYPES (data file uses emoji icons)
+const VISA_LUCIDE: Record<string, React.ElementType> = {
+  study: GraduationCap,
+  work: Briefcase,
+  tourist: Plane,
+  immigration: Home,
+  business: Building2,
 };
 
 const homeFaqs = [
@@ -40,17 +71,31 @@ const homeFaqs = [
   {
     question: "What is the difference between a visa and a permit?",
     answer:
-      "A visa is an endorsement in your passport that allows you to enter a country. A permit (work permit, study permit, residence permit) authorizes you to stay, work, or study once inside the country. Some countries issue both separately.",
+      "A visa is an endorsement in your passport that allows you to enter a country. A permit (work permit, study permit, residence permit) authorises you to stay, work, or study once inside the country. Some countries issue both separately.",
   },
 ];
 
 const visaColors: Record<string, { from: string; to: string; badge: string; text: string }> = {
-  study:       { from: "from-blue-600",   to: "to-indigo-700",  badge: "bg-blue-100 text-blue-800",      text: "text-blue-700" },
-  work:        { from: "from-violet-600", to: "to-purple-700",  badge: "bg-violet-100 text-violet-800",   text: "text-violet-700" },
-  tourist:     { from: "from-sky-500",    to: "to-cyan-600",    badge: "bg-sky-100 text-sky-800",         text: "text-sky-700" },
-  immigration: { from: "from-emerald-600",to: "to-teal-700",    badge: "bg-emerald-100 text-emerald-800", text: "text-emerald-700" },
-  business:    { from: "from-amber-500",  to: "to-orange-600",  badge: "bg-amber-100 text-amber-800",     text: "text-amber-700" },
+  study:       { from: "from-blue-600",    to: "to-indigo-700",  badge: "bg-blue-100 text-blue-800",      text: "text-blue-700" },
+  work:        { from: "from-violet-600",  to: "to-purple-700",  badge: "bg-violet-100 text-violet-800",   text: "text-violet-700" },
+  tourist:     { from: "from-sky-500",     to: "to-cyan-600",    badge: "bg-sky-100 text-sky-800",         text: "text-sky-700" },
+  immigration: { from: "from-emerald-600", to: "to-teal-700",    badge: "bg-emerald-100 text-emerald-800", text: "text-emerald-700" },
+  business:    { from: "from-amber-500",   to: "to-orange-600",  badge: "bg-amber-100 text-amber-800",     text: "text-amber-700" },
 };
+
+const HOW_IT_WORKS = [
+  { step: "01", Icon: Globe,         title: "Choose Country",      desc: "Select your destination from 131 countries with detailed visa guides." },
+  { step: "02", Icon: FileText,      title: "Check Requirements",  desc: "Review the exact documents, fees, and eligibility for your visa type." },
+  { step: "03", Icon: ClipboardCheck,title: "Prepare & Apply",     desc: "Follow our step-by-step checklist and submit a complete application." },
+  { step: "04", Icon: Plane,         title: "Travel Confidently",  desc: "Get your visa approved and travel with all the knowledge you need." },
+];
+
+const SEO_VISA_CARDS = [
+  { Icon: GraduationCap, title: "Study Visa", desc: "A study visa allows international students to live and study abroad. Countries like Canada, Australia, and the UK offer post-study work rights that can lead to permanent residency.", href: "/visa/study" },
+  { Icon: Briefcase,     title: "Work Visa",  desc: "Work visas authorise foreign nationals to be employed in another country — from employer-sponsored visas (USA H-1B, UK Skilled Worker) to points-based systems (Canada Express Entry).", href: "/visa/work" },
+  { Icon: Plane,         title: "Tourist Visa", desc: "Tourist visas allow temporary entry for leisure, sightseeing, and visiting family. The Schengen visa covers 27 European countries in a single application.", href: "/visa/tourist" },
+  { Icon: Home,          title: "Permanent Residency", desc: "PR gives foreign nationals the right to live and work indefinitely. Canada's Express Entry, Australia's SkillSelect, and Germany's settlement permit are popular pathways.", href: "/visa/immigration" },
+];
 
 export default function HomePage() {
   return (
@@ -83,7 +128,7 @@ export default function HomePage() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 border border-white/25 backdrop-blur-sm rounded-full px-4 py-1.5 text-sm font-medium text-white mb-8">
             <span className="w-2 h-2 bg-accent-400 rounded-full animate-pulse" />
-            Updated for 2026 · 500+ Free Visa Guides
+            Updated for 2026 &middot; 10,000+ Free Visa Guides
           </div>
 
           {/* Headline */}
@@ -98,7 +143,7 @@ export default function HomePage() {
           {/* Subheading */}
           <p className="text-lg sm:text-xl text-blue-100/90 max-w-2xl mx-auto mb-10 leading-relaxed">
             Study abroad, work overseas, travel the world, or settle permanently. Step-by-step guides for{" "}
-            <span className="text-white font-semibold">15+ countries</span> — 100% free.
+            <span className="text-white font-semibold">131 countries</span> — 100% free.
           </p>
 
           {/* CTA Buttons */}
@@ -107,10 +152,8 @@ export default function HomePage() {
               href="#countries"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent-500 hover:bg-accent-600 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 text-base"
             >
-              Browse Countries
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-              </svg>
+              Browse 131 Countries
+              <ChevronRight className="w-4 h-4" />
             </Link>
             <Link
               href="/blog"
@@ -121,14 +164,23 @@ export default function HomePage() {
           </div>
 
           {/* Floating country flags strip */}
-          <div className="flex flex-wrap justify-center gap-3 max-w-xl mx-auto">
-            {COUNTRIES.map((c) => (
+          <div className="flex flex-wrap justify-center gap-2.5 max-w-2xl mx-auto">
+            {heroCountries.map((c) => (
               <Link
                 key={c.slug}
-                href={`/country/${c.slug}`}
+                href={`/${c.slug}-visa-info`}
                 className="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full px-3 py-1.5 text-sm text-white/90 hover:text-white transition-all duration-150 backdrop-blur-sm"
               >
-                <span className="text-base">{c.flag}</span>
+                <span className="w-5 h-3.5 rounded-sm overflow-hidden inline-block shrink-0">
+                  <Image
+                    src={`https://flagcdn.com/w40/${c.code}.png`}
+                    alt={`${c.name} flag`}
+                    width={20}
+                    height={14}
+                    className="w-full h-full object-cover"
+                    unoptimized
+                  />
+                </span>
                 <span className="font-medium hidden sm:inline">{c.name}</span>
               </Link>
             ))}
@@ -140,8 +192,8 @@ export default function HomePage() {
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
               {[
-                { value: "16+", label: "Countries Covered" },
-                { value: "500+", label: "Visa Guides" },
+                { value: "131+", label: "Countries Covered" },
+                { value: "10,000+", label: "Visa Guides" },
                 { value: "5", label: "Visa Categories" },
                 { value: "Free", label: "Always Free" },
               ].map((s) => (
@@ -172,7 +224,8 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {VISA_TYPES.map((v) => {
-              const colors = visaColors[v.slug];
+              const colors = visaColors[v.slug] ?? visaColors.tourist;
+              const IconComp = VISA_LUCIDE[v.slug] ?? Globe;
               return (
                 <Link
                   key={v.slug}
@@ -182,8 +235,8 @@ export default function HomePage() {
                   {/* Gradient top bar */}
                   <div className={`h-2 w-full bg-gradient-to-r ${colors.from} ${colors.to}`} />
                   <div className="p-6 bg-white group-hover:bg-gray-50 transition-colors">
-                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mb-4 bg-gradient-to-br ${colors.from} ${colors.to} shadow-md`}>
-                      {v.icon}
+                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 bg-gradient-to-br ${colors.from} ${colors.to} shadow-md`}>
+                      <IconComp className="w-7 h-7 text-white" />
                     </div>
                     <h3 className="text-lg font-bold text-gray-900 mb-2">{v.name}</h3>
                     <p className="text-sm text-gray-500 leading-relaxed mb-4 line-clamp-3">
@@ -191,9 +244,7 @@ export default function HomePage() {
                     </p>
                     <div className={`inline-flex items-center gap-1.5 text-xs font-bold ${colors.text} group-hover:gap-2.5 transition-all`}>
                       Full Guide
-                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                      </svg>
+                      <ChevronRight className="w-3.5 h-3.5" />
                     </div>
                   </div>
                 </Link>
@@ -215,7 +266,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="inline-block bg-accent-50 text-accent-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
-              15 Destinations
+              131 Destinations
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
               Find Visa Information by Country
@@ -240,18 +291,13 @@ export default function HomePage() {
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { step: "01", icon: "🔍", title: "Choose Country", desc: "Select your destination from 15 countries with detailed guides." },
-              { step: "02", icon: "📋", title: "Check Requirements", desc: "Review the exact documents, fees, and eligibility for your visa type." },
-              { step: "03", icon: "📝", title: "Prepare & Apply", desc: "Follow our step-by-step checklist and submit a complete application." },
-              { step: "04", icon: "✈️", title: "Travel Confidently", desc: "Get your visa approved and travel with all the knowledge you need." },
-            ].map((item) => (
+            {HOW_IT_WORKS.map((item) => (
               <div key={item.step} className="relative text-center">
                 {/* Step connector line */}
                 <div className="absolute top-8 left-1/2 w-full h-0.5 bg-gray-100 hidden lg:block -z-0" />
                 <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-2xl bg-primary-50 border-2 border-primary-100 flex items-center justify-center text-3xl mx-auto mb-4">
-                    {item.icon}
+                  <div className="w-16 h-16 rounded-2xl bg-primary-50 border-2 border-primary-100 flex items-center justify-center mx-auto mb-4">
+                    <item.Icon className="w-7 h-7 text-primary-700" />
                   </div>
                   <div className="text-xs font-bold text-primary-400 mb-1 tracking-widest">STEP {item.step}</div>
                   <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
@@ -267,9 +313,11 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-gradient-to-r from-primary-900 via-primary-800 to-indigo-800 py-16">
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <div className="text-5xl mb-4">📚</div>
+          <div className="flex justify-center mb-4">
+            <BookOpen className="w-12 h-12 text-accent-400" />
+          </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold mb-4">
-            500+ Free Visa Guides — Updated for 2026
+            10,000+ Free Visa Guides — Updated for 2026
           </h2>
           <p className="text-blue-200 text-base mb-8 max-w-xl mx-auto">
             From step-by-step application walkthroughs to country-specific fee breakdowns — we have every scenario covered.
@@ -279,9 +327,7 @@ export default function HomePage() {
             className="inline-flex items-center gap-2 px-8 py-4 bg-accent-500 hover:bg-accent-600 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200"
           >
             Browse All Guides
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-            </svg>
+            <ChevronRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
@@ -304,19 +350,16 @@ export default function HomePage() {
           <article className="prose-article space-y-8">
             <div className="bg-primary-50 border-l-4 border-primary-600 rounded-r-xl p-5">
               <p className="text-gray-700 leading-relaxed">
-                Applying for a visa is often the most stressful part of any international journey. The global immigration landscape changes constantly — governments update policies, introduce digital systems, and adjust fee structures every year. <strong>Global Visa Guide Hub</strong> provides accurate, easy-to-understand visa information for the world&apos;s most popular destination countries, all in one place and completely free.
+                Applying for a visa is often the most stressful part of any international journey. The global immigration landscape changes constantly — governments update policies, introduce digital systems, and adjust fee structures every year. <strong>VisaProcessInfo</strong> provides accurate, easy-to-understand visa information for 131 destination countries, all in one place and completely free.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[
-                { icon: "🎓", title: "Study Visa", desc: "A study visa allows international students to live and study abroad. Countries like Canada, Australia, and the UK offer post-study work rights that can lead to permanent residency.", href: "/visa/study" },
-                { icon: "💼", title: "Work Visa", desc: "Work visas authorize foreign nationals to be employed in another country — from employer-sponsored visas (USA H-1B, UK Skilled Worker) to points-based systems (Canada Express Entry).", href: "/visa/work" },
-                { icon: "✈️", title: "Tourist Visa", desc: "Tourist visas allow temporary entry for leisure, sightseeing, and visiting family. The Schengen visa covers 27 European countries in a single application.", href: "/visa/tourist" },
-                { icon: "🏠", title: "Permanent Residency", desc: "PR gives foreign nationals the right to live and work indefinitely. Canada's Express Entry, Australia's SkillSelect, and Germany's settlement permit are popular pathways.", href: "/visa/immigration" },
-              ].map((item) => (
+              {SEO_VISA_CARDS.map((item) => (
                 <Link key={item.href} href={item.href} className="group flex gap-4 p-5 bg-gray-50 hover:bg-primary-50 rounded-2xl border border-gray-100 hover:border-primary-200 transition-all duration-200">
-                  <span className="text-3xl shrink-0">{item.icon}</span>
+                  <div className="shrink-0 w-10 h-10 rounded-xl bg-primary-100 flex items-center justify-center">
+                    <item.Icon className="w-5 h-5 text-primary-700" />
+                  </div>
                   <div>
                     <h3 className="font-bold text-gray-900 group-hover:text-primary-800 mb-1 transition-colors">{item.title}</h3>
                     <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
@@ -334,7 +377,7 @@ export default function HomePage() {
                 { title: "PR Pathway", desc: "Canada, Australia, and Germany have transparent routes from work/study visas to permanent residency." },
               ].map((item) => (
                 <div key={item.title} className="flex gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100">
-                  <span className="text-accent-500 font-bold text-lg shrink-0 mt-0.5">✓</span>
+                  <CheckCircle2 className="w-4 h-4 text-accent-500 shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-semibold text-gray-900 text-sm">{item.title}</h4>
                     <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{item.desc}</p>
@@ -355,7 +398,7 @@ export default function HomePage() {
                   "Misrepresenting information — discrepancies cause immediate rejection",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm text-gray-700">
-                    <span className="text-red-400 shrink-0 mt-0.5">✗</span>
+                    <XCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
                     {item}
                   </li>
                 ))}
@@ -408,16 +451,16 @@ export default function HomePage() {
                   At the same time, the visa application landscape has become more complex. Most major destination
                   countries have reformed their immigration systems significantly in the past three years.
                   The UK introduced the Skilled Worker Visa in 2021 and has since revised salary thresholds
-                  multiple times, most recently raising the general threshold to £38,700. Canada's Express Entry
+                  multiple times, most recently raising the general threshold to £38,700. Canada&apos;s Express Entry
                   system now draws candidates by occupation category in addition to general draws. Australia
                   has reformed its SkillSelect programme to address critical skills shortages. Germany enacted
                   the most comprehensive reform of its immigration law in decades, creating new pathways for
                   skilled workers without prior German recognition of their qualifications.
                 </p>
                 <p>
-                  The Gulf region is undergoing a transformation. The UAE's Golden Visa, Green Visa, and
+                  The Gulf region is undergoing a transformation. The UAE&apos;s Golden Visa, Green Visa, and
                   Freelance Permit are attracting hundreds of thousands of skilled professionals and entrepreneurs.
-                  Saudi Arabia's Vision 2030 programme is opening the country to foreign workers and tourists
+                  Saudi Arabia&apos;s Vision 2030 programme is opening the country to foreign workers and tourists
                   in unprecedented ways. Turkey has emerged as a popular destination for investors seeking
                   citizenship by investment, as well as for digital nomads drawn by low costs and favourable
                   e-visa access.
@@ -437,8 +480,8 @@ export default function HomePage() {
               <h2 className="text-2xl font-bold text-gray-900">Visa Difficulty — Which Countries Are Easiest and Hardest?</h2>
               <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
                 <p>
-                  One of the most common questions from visa applicants is: "Which country is easiest to get
-                  a visa for?" The honest answer is that it depends on your nationality, your purpose of travel,
+                  One of the most common questions from visa applicants is: which country is easiest to get
+                  a visa for? The honest answer is that it depends on your nationality, your purpose of travel,
                   your income and assets, and your application history. But some general patterns hold across
                   applicant profiles.
                 </p>
@@ -446,8 +489,8 @@ export default function HomePage() {
                   <strong className="text-gray-800">Generally more straightforward for tourists:</strong> The UAE
                   and Turkey offer e-visas that are approved within minutes or hours for most nationalities. Many
                   European Schengen countries are accessible for well-documented tourist applications, though refusal
-                  rates vary by consulate and applicant nationality. Canada's eTA for visa-exempt nationals is
-                  almost automatic. Australia's Electronic Travel Authority (ETA) for eligible passport holders
+                  rates vary by consulate and applicant nationality. Canada&apos;s eTA for visa-exempt nationals is
+                  almost automatic. Australia&apos;s Electronic Travel Authority (ETA) for eligible passport holders
                   is similarly straightforward.
                 </p>
                 <p>
@@ -455,14 +498,14 @@ export default function HomePage() {
                   the UK, USA, Canada, and Australia require employer sponsorship, skills assessments, or
                   points-based eligibility that takes months to build. The US H-1B visa system runs a lottery
                   with a registration-to-cap ratio that has made it effectively inaccessible for many applicants.
-                  Canada's Express Entry is meritocratic but competitive — Comprehensive Ranking System (CRS)
+                  Canada&apos;s Express Entry is meritocratic but competitive — Comprehensive Ranking System (CRS)
                   cut-off scores in recent years have ranged from 481 to 543 for general draws.
                 </p>
                 <p>
-                  <strong className="text-gray-800">New emerging pathways:</strong> Germany's opportunity card
+                  <strong className="text-gray-800">New emerging pathways:</strong> Germany&apos;s opportunity card
                   (Chancenkarte), launched under the 2024 Skilled Immigration Act reforms, allows skilled workers
                   to enter Germany to seek employment without a prior job offer — a significant change from
-                  traditional work visa requirements. Portugal's D8 Digital Nomad Visa and the Netherlands'
+                  traditional work visa requirements. Portugal&apos;s D8 Digital Nomad Visa and the Netherlands&apos;
                   Orientation Year permit for recent graduates are similarly innovative pathways attracting
                   significant interest.
                 </p>
@@ -490,8 +533,8 @@ export default function HomePage() {
                   recognised institution in the destination country, which typically grants access to part-time
                   work rights during study and post-study work rights after graduation. The UK Graduate Route
                   allows international graduates to stay and work for 2 years after graduation (3 for PhD
-                  graduates). Canada's Post-Graduation Work Permit (PGWP) grants up to 3 years of open work
-                  authorisation and generates Canadian work experience valuable for Express Entry. Australia's
+                  graduates). Canada&apos;s Post-Graduation Work Permit (PGWP) grants up to 3 years of open work
+                  authorisation and generates Canadian work experience valuable for Express Entry. Australia&apos;s
                   Temporary Graduate visa (subclass 485) provides 2–4 years of post-study work rights depending
                   on the degree level and study location.
                 </p>
@@ -531,46 +574,23 @@ export default function HomePage() {
                   to improve their chances.
                 </p>
                 <ol className="space-y-3">
-                  <li className="flex gap-3">
-                    <span className="shrink-0 font-bold text-primary-700">1.</span>
-                    <div><strong className="text-gray-800">Bank statements (3–6 months):</strong> The most commonly requested financial document and the one most often submitted incorrectly. Officers look for consistent balances, income sources that match your stated employment, and funds that have been present for an adequate period — not recently deposited lump sums.</div>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="shrink-0 font-bold text-primary-700">2.</span>
-                    <div><strong className="text-gray-800">Employment letter / employer confirmation:</strong> Must state your position, salary, employment start date, nature of the business, and — crucially for tourist and visitor visas — confirmation that you have approved leave to travel and your position will be held for you.</div>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="shrink-0 font-bold text-primary-700">3.</span>
-                    <div><strong className="text-gray-800">Travel history and passport:</strong> Your history of international travel — where you've been, how long you stayed, whether you returned as required — is one of the strongest predictors of future compliance. A clean travel history demonstrating respect for visa conditions substantially strengthens applications.</div>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="shrink-0 font-bold text-primary-700">4.</span>
-                    <div><strong className="text-gray-800">Accommodation proof:</strong> Hotel bookings, host invitation letters, or rental agreements. The key is that your planned accommodation matches your stated itinerary and the duration of your intended stay.</div>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="shrink-0 font-bold text-primary-700">5.</span>
-                    <div><strong className="text-gray-800">Purpose of travel documentation:</strong> For business visas, this is a business invitation letter from the host organisation. For tourism, a credible itinerary. For study, an unconditional or conditional offer letter from a registered institution. The documentation must be consistent with and supportive of your stated purpose.</div>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="shrink-0 font-bold text-primary-700">6.</span>
-                    <div><strong className="text-gray-800">Ties to home country:</strong> For visitor visas especially, officers assess the risk that you will overstay. Property ownership, immediate family remaining at home, stable long-term employment, and business ownership are all evidence of strong ties that make overstaying less likely.</div>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="shrink-0 font-bold text-primary-700">7.</span>
-                    <div><strong className="text-gray-800">English language test results:</strong> Required for study and most work visa categories. IELTS and TOEFL are most widely accepted. Minimum scores vary by visa category and institution — always verify the exact requirements for your specific application.</div>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="shrink-0 font-bold text-primary-700">8.</span>
-                    <div><strong className="text-gray-800">Educational credentials and skill assessments:</strong> Degree certificates, transcripts, and for countries with points-based systems, skills assessment outcomes from the relevant assessment authority. Overseas qualifications sometimes require formal recognition before they can be used in an immigration application.</div>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="shrink-0 font-bold text-primary-700">9.</span>
-                    <div><strong className="text-gray-800">Health and character clearances:</strong> Many long-term visas require police clearance certificates from all countries where you have lived for an extended period, and a medical examination from an authorised physician. These take time to obtain and should be requested early in the application process.</div>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="shrink-0 font-bold text-primary-700">10.</span>
-                    <div><strong className="text-gray-800">Cover letter / personal statement:</strong> Often underestimated, a well-written cover letter that clearly explains your purpose, your ties to home, your financial situation, and your immigration history in coherent narrative form can significantly improve the impression your application makes — especially when individual documents are strong but the overall picture needs explanation.</div>
-                  </li>
+                  {[
+                    { label: "Bank statements (3–6 months)", desc: "The most commonly requested financial document and the one most often submitted incorrectly. Officers look for consistent balances, income sources that match your stated employment, and funds that have been present for an adequate period — not recently deposited lump sums." },
+                    { label: "Employment letter / employer confirmation", desc: "Must state your position, salary, employment start date, nature of the business, and — crucially for tourist and visitor visas — confirmation that you have approved leave to travel and your position will be held for you." },
+                    { label: "Travel history and passport", desc: "Your history of international travel — where you've been, how long you stayed, whether you returned as required — is one of the strongest predictors of future compliance. A clean travel history demonstrating respect for visa conditions substantially strengthens applications." },
+                    { label: "Accommodation proof", desc: "Hotel bookings, host invitation letters, or rental agreements. The key is that your planned accommodation matches your stated itinerary and the duration of your intended stay." },
+                    { label: "Purpose of travel documentation", desc: "For business visas, this is a business invitation letter from the host organisation. For tourism, a credible itinerary. For study, an unconditional or conditional offer letter from a registered institution. The documentation must be consistent with and supportive of your stated purpose." },
+                    { label: "Ties to home country", desc: "For visitor visas especially, officers assess the risk that you will overstay. Property ownership, immediate family remaining at home, stable long-term employment, and business ownership are all evidence of strong ties that make overstaying less likely." },
+                    { label: "English language test results", desc: "Required for study and most work visa categories. IELTS and TOEFL are most widely accepted. Minimum scores vary by visa category and institution — always verify the exact requirements for your specific application." },
+                    { label: "Educational credentials and skill assessments", desc: "Degree certificates, transcripts, and for countries with points-based systems, skills assessment outcomes from the relevant assessment authority. Overseas qualifications sometimes require formal recognition before they can be used in an immigration application." },
+                    { label: "Health and character clearances", desc: "Many long-term visas require police clearance certificates from all countries where you have lived for an extended period, and a medical examination from an authorised physician. These take time to obtain and should be requested early in the application process." },
+                    { label: "Cover letter / personal statement", desc: "Often underestimated, a well-written cover letter that clearly explains your purpose, your ties to home, your financial situation, and your immigration history in coherent narrative form can significantly improve the impression your application makes — especially when individual documents are strong but the overall picture needs explanation." },
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex gap-3">
+                      <span className="shrink-0 font-bold text-primary-700">{idx + 1}.</span>
+                      <div><strong className="text-gray-800">{item.label}:</strong> {item.desc}</div>
+                    </li>
+                  ))}
                 </ol>
               </div>
             </div>
@@ -591,15 +611,15 @@ export default function HomePage() {
                 attract the skills and profiles that best meet their labour market needs.
               </p>
               <p>
-                Canada's Comprehensive Ranking System (CRS) scores applicants on age, education, language
+                Canada&apos;s Comprehensive Ranking System (CRS) scores applicants on age, education, language
                 proficiency, work experience, and adaptability factors, with additional points available for
                 job offers, Canadian qualifications, and provincial nominations. The system creates clear
                 incentives for applicants to invest in their profile — improving language scores, gaining
                 additional qualifications, or obtaining a provincial nomination can dramatically increase
-                an applicant's CRS score.
+                an applicant&apos;s CRS score.
               </p>
               <p>
-                Australia's SkillSelect system operates similarly, with the added complexity of occupation-
+                Australia&apos;s SkillSelect system operates similarly, with the added complexity of occupation-
                 specific demand signals — certain occupations are invited at lower points thresholds because
                 Australia has identified them as critical shortages. Understanding which occupations are in
                 demand in each country is therefore a key strategic consideration for anyone planning a
@@ -616,9 +636,9 @@ export default function HomePage() {
                 the host country.
               </p>
               <p>
-                These visas vary enormously in their requirements and benefits. Some, like Germany's
-                freelance visa (Freiberufler), are long-established. Others, like Portugal's D8 Digital
-                Nomad Visa, Spain's Startups Act Digital Nomad Visa, and the UAE's Virtual Working
+                These visas vary enormously in their requirements and benefits. Some, like Germany&apos;s
+                freelance visa (Freiberufler), are long-established. Others, like Portugal&apos;s D8 Digital
+                Nomad Visa, Spain&apos;s Startups Act Digital Nomad Visa, and the UAE&apos;s Virtual Working
                 Programme, are recent innovations. Most require proof of regular income above a specified
                 threshold (typically 3–5 times the local minimum wage) and health insurance coverage.
               </p>
@@ -626,7 +646,7 @@ export default function HomePage() {
                 Digital nomad visas typically do not grant the right to work for local employers, only
                 to continue working remotely for overseas employers or clients. They also generally do not
                 count towards permanent residency accumulation in most countries, though some (like
-                Portugal's) can serve as a stepping stone towards long-term residency.
+                Portugal&apos;s) can serve as a stepping stone towards long-term residency.
               </p>
             </div>
             <div className="space-y-4">
@@ -646,7 +666,7 @@ export default function HomePage() {
                 more restrictive in response to concerns about their effect on local housing markets.
               </p>
               <p>
-                Turkey's Citizenship by Investment programme, which requires a minimum $400,000 real estate
+                Turkey&apos;s Citizenship by Investment programme, which requires a minimum $400,000 real estate
                 purchase or $500,000 capital deposit, has attracted significant interest from investors in
                 the Middle East, Central Asia, and South Asia. Turkish citizenship provides visa-free or
                 visa-on-arrival access to 110+ countries, making it a popular second citizenship option.
@@ -660,14 +680,14 @@ export default function HomePage() {
       <section className="py-14 bg-gray-50 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 text-center mb-2">
-            Explore All Destinations
+            Featured Destinations
           </h2>
-          <p className="text-center text-gray-500 text-sm mb-8">16 countries covered — click any to explore visa guides</p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 gap-3">
-            {COUNTRIES.map((c) => (
+          <p className="text-center text-gray-500 text-sm mb-8">131 countries covered — click any to explore visa guides</p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
+            {exploreCountries.map((c) => (
               <Link
                 key={c.slug}
-                href={`/country/${c.slug}`}
+                href={`/${c.slug}-visa-info`}
                 className="group flex flex-col items-center gap-2.5 p-3 sm:p-4 bg-white rounded-2xl border border-gray-100 shadow-sm hover:border-primary-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
               >
                 <div className="w-12 h-8 rounded-md overflow-hidden shadow-sm border border-gray-100">
@@ -685,6 +705,15 @@ export default function HomePage() {
                 </span>
               </Link>
             ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link
+              href="#countries"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary-800 hover:bg-primary-700 text-white font-semibold rounded-xl transition-colors shadow-sm text-sm"
+            >
+              View All 131 Countries
+              <ChevronRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>

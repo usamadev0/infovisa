@@ -101,7 +101,7 @@ export default async function BlogPostPage({ params }: Props) {
                 </span>
                 {country && (
                   <Link
-                    href={`/country/${country.slug}`}
+                    href={`/${country.slug}-visa-info`}
                     className="text-xs font-medium text-gray-600 bg-gray-100 hover:bg-primary-50 hover:text-primary-700 px-2.5 py-1 rounded-full transition-colors"
                   >
                     {country.flag} {country.name}
@@ -238,7 +238,7 @@ export default async function BlogPostPage({ params }: Props) {
               <div className="flex flex-wrap gap-2">
                 {country && (
                   <Link
-                    href={`/country/${country.slug}`}
+                    href={`/${country.slug}-visa-info`}
                     className="text-sm text-primary-700 bg-primary-50 hover:bg-primary-100 px-3 py-1.5 rounded-full transition-colors border border-primary-200"
                   >
                     {country.flag} {country.name} Visa Guide

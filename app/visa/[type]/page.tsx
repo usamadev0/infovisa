@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!visa) return {};
   return {
     title: `${visa.name} Guide ${new Date().getFullYear()} — Requirements, Process & Countries`,
-    description: `Complete ${visa.name.toLowerCase()} guide for ${new Date().getFullYear()}. Requirements, step-by-step process, fees, and country-specific information for 15+ destinations.`,
+    description: `Complete ${visa.name.toLowerCase()} guide for ${new Date().getFullYear()}. Requirements, step-by-step process, fees, and country-specific information for 131 destinations worldwide.`,
     alternates: { canonical: `https://www.visaprocessinfo.com/visa/${visa.slug}` },
     keywords: mergeKeywords(VISA_TYPE_KEYWORDS[visa.slug] ?? [], HOMEPAGE_KEYWORDS.slice(0, 20)),
   };
@@ -130,7 +130,7 @@ export default async function VisaTypePage({ params }: Props) {
                 {eligibleCountries.map((c) => (
                   <Link
                     key={c.slug}
-                    href={`/country/${c.slug}`}
+                    href={`/${c.slug}-visa-info`}
                     className="group flex items-center gap-3 p-3 bg-white rounded-xl border border-gray-200 hover:border-primary-300 hover:shadow-sm transition-all"
                   >
                     <span className="text-2xl">{c.flag}</span>
@@ -251,7 +251,7 @@ export default async function VisaTypePage({ params }: Props) {
                 {eligibleCountries.slice(0, 5).map((c) => (
                   <Link
                     key={c.slug}
-                    href={`/country/${c.slug}`}
+                    href={`/${c.slug}-visa-info`}
                     className="flex items-center gap-2 text-sm text-primary-700 hover:text-primary-900 transition-colors"
                   >
                     <span>{c.flag}</span> {c.name}
