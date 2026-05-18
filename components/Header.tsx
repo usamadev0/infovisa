@@ -173,6 +173,33 @@ export default function Header() {
               </div>
             </Dropdown>
 
+            {/* Tools dropdown */}
+            <Dropdown label="Free Tools" scrolled={scrolled}>
+              <div className="p-2 w-64">
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-wider px-3 pt-1 pb-2">Visa Tools</p>
+                <Link
+                  href="/tools/eligibility-checker"
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-800 transition-colors"
+                >
+                  <span className="text-xl w-7 text-center">✅</span>
+                  <div>
+                    <div className="font-semibold">Eligibility Checker</div>
+                    <div className="text-xs text-gray-400">Check your visa approval chances</div>
+                  </div>
+                </Link>
+                <Link
+                  href="/tools/cost-calculator"
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-800 transition-colors"
+                >
+                  <span className="text-xl w-7 text-center">💰</span>
+                  <div>
+                    <div className="font-semibold">Cost Calculator</div>
+                    <div className="text-xs text-gray-400">Estimate total visa fees</div>
+                  </div>
+                </Link>
+              </div>
+            </Dropdown>
+
             {/* Blog */}
             <Link
               href="/blog"
@@ -304,6 +331,31 @@ export default function Header() {
                       <span>{p.icon}</span><span>{p.label}</span>
                     </Link>
                   ))}
+                </div>
+              )}
+            </div>
+
+            {/* Tools accordion */}
+            <div>
+              <button
+                onClick={() => setMobileSection(mobileSection === "tools" ? null : "tools")}
+                className="w-full flex items-center justify-between py-3 px-3 text-sm font-semibold text-gray-800 hover:bg-primary-50 rounded-xl transition-colors"
+              >
+                <span>🛠️ Free Tools</span>
+                <svg className={`w-4 h-4 text-gray-400 transition-transform ${mobileSection === "tools" ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {mobileSection === "tools" && (
+                <div className="space-y-1 px-3 pb-2">
+                  <Link href="/tools/eligibility-checker" onClick={() => setMenuOpen(false)}
+                    className="flex items-center gap-2 py-2 px-2 text-sm text-gray-700 hover:text-primary-800 hover:bg-primary-50 rounded-lg transition-colors">
+                    <span>✅</span><span>Eligibility Checker</span>
+                  </Link>
+                  <Link href="/tools/cost-calculator" onClick={() => setMenuOpen(false)}
+                    className="flex items-center gap-2 py-2 px-2 text-sm text-gray-700 hover:text-primary-800 hover:bg-primary-50 rounded-lg transition-colors">
+                    <span>💰</span><span>Cost Calculator</span>
+                  </Link>
                 </div>
               )}
             </div>
