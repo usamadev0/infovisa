@@ -194,10 +194,12 @@ export default async function ProgrammaticPage({ params }: Props) {
           className="object-cover object-center"
         />
 
-        {/* Subtle brand color tint — light enough to let the HD photo show clearly */}
+        {/* Layer 1: Brand diagonal tint — lets HD photo show clearly */}
         <div className={`absolute inset-0 bg-gradient-to-br ${overlayGradient}`} />
-        {/* Bottom darkening gradient for text readability (lighter than before) */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+        {/* Layer 2: Strong bottom-up — ensures title/stats always readable */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent" />
+        {/* Layer 3: Left vignette — cinematic depth */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-transparent" />
 
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">
@@ -250,7 +252,7 @@ export default async function ProgrammaticPage({ params }: Props) {
                 </span>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight text-white drop-shadow-sm">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight text-white drop-shadow-lg">
                 {content.heroTitle}
               </h1>
             </div>

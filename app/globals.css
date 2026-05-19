@@ -40,32 +40,37 @@ p {
 /* ── Typography scale ───────────────────────────────────────────────────────── */
 
 /*
-  NOTE: Element selectors have lower CSS specificity than Tailwind class selectors.
-  These defaults apply only when no explicit color class is used on the element.
-  They replace the previous #0f172a (near-black) default with brand blue hierarchy.
+  IMPORTANT ARCHITECTURE NOTE:
+  CSS element selectors (h1, h2…) override INHERITED color (e.g. from a parent's
+  `text-white` class) but are overridden BY explicit Tailwind class selectors
+  (.text-white, .text-primary-800, etc.) on the element itself.
+
+  Therefore:
+  - Hero headings MUST carry an explicit `text-white` class to override these rules.
+  - Body/content headings that use `text-primary-800` or similar are fine.
+  - These rules are ONLY a fallback for headings with no explicit color class.
+
+  Only set font-weight and line-height here. Use NO color on h1-h6 globally to
+  avoid conflicts with hero white text. Brand colors are applied per-component.
 */
 h1 {
   font-weight: 800;
   line-height: 1.15;
-  color: #1E3A8A;    /* brand dark — premium, not plain black */
 }
 
 h2 {
   font-weight: 700;
   line-height: 1.25;
-  color: #1E40AF;    /* brand primary blue */
 }
 
 h3 {
   font-weight: 700;
   line-height: 1.3;
-  color: #1D4ED8;    /* brand mid-blue */
 }
 
 h4, h5, h6 {
   font-weight: 600;
   line-height: 1.35;
-  color: #1e293b;    /* slate-800 — readable, not pure black */
 }
 
 /* ── Premium heading utilities ──────────────────────────────────────────────── */

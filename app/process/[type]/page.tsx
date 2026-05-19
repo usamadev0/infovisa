@@ -61,7 +61,7 @@ export default async function ProcessPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }} />
 
       {/* ── Hero with background photo ─────────────────────────────────────── */}
-      <div className="relative text-white overflow-hidden" style={{ minHeight: "380px" }}>
+      <div className="relative text-white overflow-hidden" style={{ minHeight: "420px" }}>
         {/* Background photo */}
         <Image
           src={heroImageUrl}
@@ -71,40 +71,46 @@ export default async function ProcessPage({ params }: Props) {
           sizes="100vw"
           className="object-cover object-center"
         />
-        {/* Brand color overlay — light enough to let photo show through */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/75 via-primary-800/55 to-primary-700/35" />
-        {/* Bottom darkening for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+        {/* Layer 1: Subtle diagonal brand tint — lets photo show through */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/65 via-primary-800/40 to-transparent" />
+        {/* Layer 2: Strong bottom-up gradient — ensures text is always readable */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent" />
+        {/* Layer 3: Left vignette — visual depth and cinematic feel */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent" />
 
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-14">
           <Breadcrumb
+            variant="light"
             items={[
               { label: "Apply Process", href: "/process/study-visa-application" },
               { label: process.title },
             ]}
           />
-          <div className="flex items-center gap-4 mb-4 mt-4">
-            <div className="w-14 h-14 rounded-2xl bg-white/15 border border-white/30 flex items-center justify-center shrink-0 text-3xl backdrop-blur-sm">
+          <div className="flex items-start gap-4 mb-4 mt-2">
+            <div className="w-14 h-14 rounded-2xl bg-white/15 border border-white/30 flex items-center justify-center shrink-0 text-3xl backdrop-blur-sm mt-1">
               {process.icon}
             </div>
             <div>
-              <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight drop-shadow-sm">{process.title}</h1>
+              {/* CRITICAL: text-white must be explicit — global h1 { color } overrides inherited white */}
+              <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight text-white drop-shadow-lg">
+                {process.title}
+              </h1>
             </div>
           </div>
 
           {/* Quick meta strip */}
-          <div className="flex flex-wrap gap-4 mt-6">
+          <div className="flex flex-wrap gap-3 mt-6">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2.5 text-sm border border-white/20">
-              <span className="text-blue-300 text-xs font-semibold uppercase tracking-wide block mb-0.5">Time Required</span>
+              <span className="text-blue-200 text-xs font-semibold uppercase tracking-wide block mb-0.5">Time Required</span>
               <span className="text-white font-semibold">{process.timeRequired}</span>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2.5 text-sm border border-white/20">
-              <span className="text-blue-300 text-xs font-semibold uppercase tracking-wide block mb-0.5">Cost Estimate</span>
+              <span className="text-blue-200 text-xs font-semibold uppercase tracking-wide block mb-0.5">Cost Estimate</span>
               <span className="text-white font-semibold">{process.costEstimate}</span>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2.5 text-sm border border-white/20">
-              <span className="text-blue-300 text-xs font-semibold uppercase tracking-wide block mb-0.5">Who It&apos;s For</span>
+              <span className="text-blue-200 text-xs font-semibold uppercase tracking-wide block mb-0.5">Who It&apos;s For</span>
               <span className="text-white font-semibold">{process.targetAudience.split(",")[0]}</span>
             </div>
           </div>

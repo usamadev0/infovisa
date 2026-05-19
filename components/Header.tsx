@@ -111,7 +111,7 @@ export default function Header() {
   }, []);
 
   const navBase = scrolled
-    ? "bg-white/97 backdrop-blur-md border-b border-gray-200 shadow-sm"
+    ? "bg-white/95 backdrop-blur-xl border-b border-gray-200/80 shadow-[0_1px_20px_rgba(0,0,0,0.08)]"
     : "bg-transparent border-b border-white/10";
 
   const logoColor = scrolled ? "text-primary-800" : "text-white";

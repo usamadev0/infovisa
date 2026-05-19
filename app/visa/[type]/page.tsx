@@ -98,7 +98,7 @@ export default async function VisaTypePage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }} />
 
       {/* ── Hero with photo background ── */}
-      <div className="relative text-white overflow-hidden" style={{ minHeight: "380px" }}>
+      <div className="relative text-white overflow-hidden" style={{ minHeight: "420px" }}>
         <Image
           src={heroImageUrl}
           alt={`${visa.name} — visa guide`}
@@ -107,16 +107,21 @@ export default async function VisaTypePage({ params }: Props) {
           sizes="100vw"
           className="object-cover object-center"
         />
+        {/* Layer 1: Brand diagonal tint */}
         <div className={`absolute inset-0 bg-gradient-to-br ${heroGradient}`} />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+        {/* Layer 2: Strong bottom-up — text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent" />
+        {/* Layer 3: Left vignette — depth */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">
-          <Breadcrumb items={[{ label: "Visa Types", href: "/#visa-types" }, { label: visa.name }]} />
-          <div className="flex items-center gap-4 mb-4 mt-4">
+          <Breadcrumb variant="light" items={[{ label: "Visa Types", href: "/#visa-types" }, { label: visa.name }]} />
+          <div className="flex items-center gap-4 mb-4 mt-2">
             <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/30 flex-shrink-0">
               <VisaIcon className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight drop-shadow-sm">
+            {/* CRITICAL: text-white must be explicit — global h1 { color } overrides inherited white */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-white drop-shadow-lg">
               {visa.name}
             </h1>
           </div>
