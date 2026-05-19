@@ -79,9 +79,7 @@ const PAGE_TYPE_BADGE: Record<string, string> = {
 };
 
 // Overlay gradient per page type (applied ON TOP of the hero photo)
-// Opacity reduced significantly so the HD photo shines through more clearly:
-//   /75 → /55 (top), /60 → /40 (mid), /50 → /25 (bottom-edge)
-// Overlay opacity reduced: /55 /35 /15 (was /70 /50 /30) — lets HD photos shine through clearly
+// Opacity: /55 /35 /15 — lighter tint lets HD Unsplash photos show through clearly
 const PAGE_OVERLAY_COLOR: Record<string, string> = {
   "country-hub":    "from-primary-950/55 via-primary-900/35 to-primary-800/15",
   "embassy":        "from-slate-950/55 via-slate-900/35 to-slate-800/15",
