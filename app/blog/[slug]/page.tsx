@@ -80,47 +80,53 @@ export default async function BlogPostPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      {/* ── Article Hero Banner ─────────────────────────────────────────────── */}
+      <div className="bg-gradient-to-br from-primary-950 via-primary-900 to-primary-800 text-white pt-24 pb-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb
+            variant="light"
+            items={[
+              { label: "Blog", href: "/blog" },
+              { label: article.category, href: `/blog?cat=${article.visaType}` },
+              { label: article.title },
+            ]}
+          />
+          <div className="mt-4 flex flex-wrap items-center gap-2 mb-5">
+            <span className="text-xs font-semibold bg-white/15 border border-white/25 text-white px-3 py-1 rounded-full backdrop-blur-sm">
+              {VISA_ICONS[article.visaType]} {article.category}
+            </span>
+            {country && (
+              <Link
+                href={`/${country.slug}-visa-info`}
+                className="text-xs font-semibold bg-white/10 border border-white/20 text-white/85 hover:text-white hover:bg-white/20 px-3 py-1 rounded-full transition-colors"
+              >
+                {country.flag} {country.name}
+              </Link>
+            )}
+            <span className="text-xs text-white/60 ml-1">{article.readingTimeMinutes} min read</span>
+            <span className="text-xs text-white/50">·</span>
+            <span className="text-xs text-white/60">
+              {new Date(article.publishedAt).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </span>
+          </div>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-tight drop-shadow-md max-w-4xl mb-4">
+            {article.title}
+          </h1>
+          <p className="text-white/75 text-base sm:text-lg leading-relaxed max-w-3xl">
+            {article.metaDescription}
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
           {/* Main article */}
           <article className="lg:col-span-2">
-            <Breadcrumb
-              items={[
-                { label: "Blog", href: "/blog" },
-                { label: article.category, href: `/blog?cat=${article.visaType}` },
-                { label: article.title },
-              ]}
-            />
-
-            {/* Article header */}
-            <header className="mb-8">
-              <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="text-xs font-medium text-primary-700 bg-primary-50 px-2.5 py-1 rounded-full">
-                  {VISA_ICONS[article.visaType]} {article.category}
-                </span>
-                {country && (
-                  <Link
-                    href={`/${country.slug}-visa-info`}
-                    className="text-xs font-medium text-gray-600 bg-gray-100 hover:bg-primary-50 hover:text-primary-700 px-2.5 py-1 rounded-full transition-colors"
-                  >
-                    {country.flag} {country.name}
-                  </Link>
-                )}
-                <span className="text-xs text-gray-400">{article.readingTimeMinutes} min read</span>
-                <span className="text-xs text-gray-400">
-                  {new Date(article.publishedAt).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </span>
-              </div>
-              <h1 className="text-3xl sm:text-4xl font-extrabold text-primary-800 leading-tight mb-4">
-                {article.title}
-              </h1>
-              <p className="text-lg text-gray-600 leading-relaxed">{article.metaDescription}</p>
-            </header>
 
             {/* Article body */}
             <div className="space-y-8">

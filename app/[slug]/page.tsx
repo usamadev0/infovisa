@@ -81,24 +81,25 @@ const PAGE_TYPE_BADGE: Record<string, string> = {
 // Overlay gradient per page type (applied ON TOP of the hero photo)
 // Opacity reduced significantly so the HD photo shines through more clearly:
 //   /75 → /55 (top), /60 → /40 (mid), /50 → /25 (bottom-edge)
+// Overlay opacity reduced: /55 /35 /15 (was /70 /50 /30) — lets HD photos shine through clearly
 const PAGE_OVERLAY_COLOR: Record<string, string> = {
-  "country-hub":    "from-primary-900/70 via-primary-800/50 to-primary-700/30",
-  "embassy":        "from-slate-900/70 via-slate-800/50 to-slate-700/30",
-  "apply":          "from-primary-900/70 via-primary-800/50 to-primary-700/30",
-  "how-to":         "from-indigo-900/70 via-indigo-800/50 to-indigo-700/30",
-  "details":        "from-primary-900/70 via-primary-800/50 to-primary-700/30",
-  "requirements":   "from-violet-900/70 via-violet-800/50 to-violet-700/30",
-  "fees":           "from-emerald-900/70 via-emerald-800/50 to-emerald-700/30",
-  "documents":      "from-blue-900/70 via-blue-800/50 to-blue-700/30",
-  "processing-time":"from-amber-900/70 via-amber-800/50 to-amber-700/30",
-  "rejection":      "from-red-900/70 via-red-800/50 to-red-700/30",
-  "interview":      "from-purple-900/70 via-purple-800/50 to-purple-700/30",
-  "success-tips":   "from-teal-900/70 via-teal-800/50 to-teal-700/30",
-  "checklist":      "from-cyan-900/70 via-cyan-800/50 to-cyan-700/30",
-  "extension":      "from-orange-900/70 via-orange-800/50 to-orange-700/30",
-  "faq":            "from-primary-900/70 via-primary-800/50 to-primary-700/30",
-  "financial":      "from-green-900/70 via-green-800/50 to-green-700/30",
-  "language":       "from-pink-900/70 via-pink-800/50 to-pink-700/30",
+  "country-hub":    "from-primary-950/55 via-primary-900/35 to-primary-800/15",
+  "embassy":        "from-slate-950/55 via-slate-900/35 to-slate-800/15",
+  "apply":          "from-primary-950/55 via-primary-900/35 to-primary-800/15",
+  "how-to":         "from-indigo-950/55 via-indigo-900/35 to-indigo-800/15",
+  "details":        "from-primary-950/55 via-primary-900/35 to-primary-800/15",
+  "requirements":   "from-violet-950/55 via-violet-900/35 to-violet-800/15",
+  "fees":           "from-emerald-950/55 via-emerald-900/35 to-emerald-800/15",
+  "documents":      "from-blue-950/55 via-blue-900/35 to-blue-800/15",
+  "processing-time":"from-amber-950/55 via-amber-900/35 to-amber-800/15",
+  "rejection":      "from-red-950/55 via-red-900/35 to-red-800/15",
+  "interview":      "from-purple-950/55 via-purple-900/35 to-purple-800/15",
+  "success-tips":   "from-teal-950/55 via-teal-900/35 to-teal-800/15",
+  "checklist":      "from-cyan-950/55 via-cyan-900/35 to-cyan-800/15",
+  "extension":      "from-orange-950/55 via-orange-900/35 to-orange-800/15",
+  "faq":            "from-primary-950/55 via-primary-900/35 to-primary-800/15",
+  "financial":      "from-green-950/55 via-green-900/35 to-green-800/15",
+  "language":       "from-pink-950/55 via-pink-900/35 to-pink-800/15",
 };
 
 // Accent color for sidebar CTA + badges per page type
@@ -182,7 +183,7 @@ export default async function ProgrammaticPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchemaData) }} />
 
       {/* ── HERO with photo background ─────────────────────────────────────── */}
-      <div className="relative text-white overflow-hidden" style={{ minHeight: "480px" }}>
+      <div className="relative text-white overflow-hidden" style={{ minHeight: "clamp(380px, 45vw, 520px)" }}>
 
         {/* Background photo */}
         <Image

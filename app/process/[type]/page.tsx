@@ -61,7 +61,7 @@ export default async function ProcessPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }} />
 
       {/* ── Hero with background photo ─────────────────────────────────────── */}
-      <div className="relative text-white overflow-hidden" style={{ minHeight: "420px" }}>
+      <div className="relative text-white overflow-hidden" style={{ minHeight: "clamp(340px, 40vw, 460px)" }}>
         {/* Background photo */}
         <Image
           src={heroImageUrl}

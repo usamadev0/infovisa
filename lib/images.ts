@@ -145,10 +145,11 @@ const PROCESS_PHOTO_IDS: Record<string, string> = {
 
 /**
  * Build Unsplash CDN URL with HD quality.
- * q=85 (crisp HD); crop=entropy auto-selects the most visually interesting region.
+ * q=85 (crisp HD); fm=webp (smaller file, sharper rendering); crop=entropy auto-selects
+ * the most visually interesting region for better focal composition.
  */
 function buildUrl(photoId: string, width = 1200, height = 630): string {
-  return `https://images.unsplash.com/photo-${photoId}?w=${width}&h=${height}&auto=format&q=85&fit=crop&crop=entropy`;
+  return `https://images.unsplash.com/photo-${photoId}?w=${width}&h=${height}&auto=format&fm=webp&q=85&fit=crop&crop=entropy&cs=tinysrgb`;
 }
 
 // ── Public API ────────────────────────────────────────────────────────────────

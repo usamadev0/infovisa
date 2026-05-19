@@ -80,12 +80,12 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <div className="bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white py-20">
+      <div className="bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white pt-28 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 text-sm font-medium mb-6">
             <Globe className="w-4 h-4" /> Independent &middot; Free &middot; Trusted
           </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">
             About VisaProcessInfo
           </h1>
           <p className="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto">

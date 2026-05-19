@@ -38,11 +38,11 @@ const VISA_LUCIDE: Record<string, React.ElementType> = {
 };
 
 const VISA_HERO_GRADIENT: Record<string, string> = {
-  study:       "from-blue-900/70 via-blue-800/50 to-blue-700/30",
-  work:        "from-violet-900/70 via-violet-800/50 to-violet-700/30",
-  tourist:     "from-sky-900/70 via-sky-800/50 to-sky-700/30",
-  immigration: "from-emerald-900/70 via-emerald-800/50 to-emerald-700/30",
-  business:    "from-amber-900/70 via-amber-800/50 to-amber-700/30",
+  study:       "from-blue-950/55 via-blue-900/35 to-blue-800/15",
+  work:        "from-violet-950/55 via-violet-900/35 to-violet-800/15",
+  tourist:     "from-sky-950/55 via-sky-900/35 to-sky-800/15",
+  immigration: "from-emerald-950/55 via-emerald-900/35 to-emerald-800/15",
+  business:    "from-amber-950/55 via-amber-900/35 to-amber-800/15",
 };
 
 export function generateStaticParams() {
@@ -98,7 +98,7 @@ export default async function VisaTypePage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }} />
 
       {/* ── Hero with photo background ── */}
-      <div className="relative text-white overflow-hidden" style={{ minHeight: "420px" }}>
+      <div className="relative text-white overflow-hidden" style={{ minHeight: "clamp(340px, 40vw, 460px)" }}>
         <Image
           src={heroImageUrl}
           alt={`${visa.name} — visa guide`}
@@ -107,12 +107,12 @@ export default async function VisaTypePage({ params }: Props) {
           sizes="100vw"
           className="object-cover object-center"
         />
-        {/* Layer 1: Brand diagonal tint */}
+        {/* Layer 1: Brand diagonal tint — lighter to let photo shine clearly */}
         <div className={`absolute inset-0 bg-gradient-to-br ${heroGradient}`} />
-        {/* Layer 2: Strong bottom-up — text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent" />
-        {/* Layer 3: Left vignette — depth */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent" />
+        {/* Layer 2: Bottom-up — ensures title is always readable */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        {/* Layer 3: Left vignette — cinematic depth */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-transparent" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">
           <Breadcrumb variant="light" items={[{ label: "Visa Types", href: "/#visa-types" }, { label: visa.name }]} />

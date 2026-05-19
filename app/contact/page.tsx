@@ -49,10 +49,10 @@ const TOPICS = [
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-14">
+      <div className="bg-gradient-to-br from-primary-900 to-primary-700 text-white pt-24 pb-14">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Breadcrumb items={[{ label: "Contact" }]} />
-          <h1 className="text-4xl font-extrabold mt-4 mb-3">Contact Us</h1>
+          <Breadcrumb variant="light" items={[{ label: "Contact" }]} />
+          <h1 className="text-4xl font-extrabold text-white mt-4 mb-3">Contact Us</h1>
           <p className="text-blue-100 text-lg max-w-2xl">
             Have a question, found an error in one of our guides, or want to work with us?
             We&apos;d love to hear from you.

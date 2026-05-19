@@ -17,14 +17,14 @@ const VISA_ICONS: Record<string, React.ElementType> = {
 };
 
 const PROCESS_LINKS = [
-  { label: "Apply for Study Visa", href: "/process/study-visa-application" },
-  { label: "Apply for Work Visa", href: "/process/work-permit-application" },
-  { label: "Visa Interview Prep", href: "/process/embassy-interview-guide" },
-  { label: "Visa Rejection Appeal", href: "/process/visa-appeal-process" },
-  { label: "Tourist Visa Guide", href: "/process/tourist-visa-application" },
-  { label: "Biometrics & Health", href: "/process/biometrics-enrollment" },
-  { label: "Embassy Interview", href: "/process/embassy-interview-guide" },
-  { label: "PR Application Guide", href: "/process/pr-immigration-application" },
+  { label: "Apply for Study Visa",  href: "/process/study-visa-application" },
+  { label: "Apply for Work Visa",   href: "/process/work-permit-application" },
+  { label: "Tourist Visa Guide",    href: "/process/tourist-visa-application" },
+  { label: "Visa Interview Prep",   href: "/process/visa-interview-preparation" },
+  { label: "Visa Rejection Appeal", href: "/process/visa-rejection-appeal" },
+  { label: "Biometrics & Health",   href: "/process/biometrics-enrollment" },
+  { label: "Embassy Interview",     href: "/process/embassy-interview-guide" },
+  { label: "PR Application Guide",  href: "/process/pr-immigration-application" },
 ];
 
 export default function Footer() {
@@ -126,9 +126,10 @@ export default function Footer() {
           <p className="text-xs text-gray-500">
             © {new Date().getFullYear()} VisaProcessInfo. All rights reserved.
           </p>
-          <div className="flex gap-5 text-xs text-gray-500">
+          <div className="flex flex-wrap gap-4 text-xs text-gray-500">
             <Link href="/about" className="hover:text-white transition-colors">About Us</Link>
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms of Use</Link>
             <Link href="/disclaimer" className="hover:text-white transition-colors">Disclaimer</Link>
             <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
           </div>

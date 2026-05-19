@@ -14,16 +14,28 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <div className="mb-8">
-        <h1 className="text-3xl sm:text-4xl font-bold text-primary-800 mb-3">
-          Visa &amp; Immigration Guides
-        </h1>
-        <p className="text-gray-600 max-w-2xl">
-          {ALL_ARTICLES.length}+ free guides covering every visa type, country, and immigration scenario. Updated for {new Date().getFullYear()}.
-        </p>
+    <>
+      {/* Hero banner — positioned below fixed 64px navbar */}
+      <div className="bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white pt-24 pb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm font-medium mb-5">
+              <span className="w-2 h-2 bg-accent-400 rounded-full animate-pulse" />
+              Updated for {new Date().getFullYear()}
+            </div>
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-3">
+              Visa &amp; Immigration Guides
+            </h1>
+            <p className="text-white/80 text-base sm:text-lg leading-relaxed">
+              {ALL_ARTICLES.length}+ free guides covering every visa type, country, and immigration scenario — always free, always current.
+            </p>
+          </div>
+        </div>
       </div>
-      <BlogList articles={ALL_ARTICLES} />
-    </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <BlogList articles={ALL_ARTICLES} />
+      </div>
+    </>
   );
 }

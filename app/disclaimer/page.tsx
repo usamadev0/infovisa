@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 export default function DisclaimerPage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-14">
+      <div className="bg-gradient-to-br from-primary-900 to-primary-700 text-white pt-24 pb-14">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Breadcrumb items={[{ label: "Disclaimer" }]} />
-          <h1 className="text-4xl font-extrabold mt-4 mb-3">Disclaimer</h1>
+          <Breadcrumb variant="light" items={[{ label: "Disclaimer" }]} />
+          <h1 className="text-4xl font-extrabold text-white mt-4 mb-3">Disclaimer</h1>
           <p className="text-blue-100 text-lg">Last updated: January 2026</p>
         </div>
       </div>
