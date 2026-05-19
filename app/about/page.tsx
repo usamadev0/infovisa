@@ -180,6 +180,48 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Editorial Methodology */}
+        <section>
+          <h2 className="text-3xl font-bold text-primary-800 mb-8">Our Editorial Process</h2>
+          <div className="relative">
+            {[
+              {
+                step: "01",
+                title: "Official Source Research",
+                desc: "Every guide begins with research from the official government immigration portal, embassy websites, and legislative documents for the relevant country and visa category.",
+              },
+              {
+                step: "02",
+                title: "Professional Review",
+                desc: "Editors with direct professional experience in the relevant immigration system review and interpret requirements — adding practical insights that pure research misses.",
+              },
+              {
+                step: "03",
+                title: "Legal Consultation",
+                desc: "For complex legal areas (PR pathways, appeals, citizenship), licensed immigration lawyers in the relevant jurisdiction review the guide for legal accuracy.",
+              },
+              {
+                step: "04",
+                title: "Publication & Monitoring",
+                desc: "Published guides are monitored continuously via official government notification systems, reader feedback, and our professional network — updates are made within 48 hours of confirmed policy changes.",
+              },
+            ].map((item, i) => (
+              <div key={item.step} className="flex gap-5 mb-6 last:mb-0">
+                <div className="flex flex-col items-center shrink-0">
+                  <div className="w-11 h-11 rounded-full bg-primary-800 text-white flex items-center justify-center font-extrabold text-sm shadow-md">
+                    {item.step}
+                  </div>
+                  {i < 3 && <div className="w-0.5 flex-1 bg-primary-200 my-2" />}
+                </div>
+                <div className="flex-1 pb-2">
+                  <h3 className="font-bold text-gray-900 text-lg mb-1">{item.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Team */}
         <section>
           <h2 className="text-3xl font-bold text-primary-800 mb-8">Our Team</h2>

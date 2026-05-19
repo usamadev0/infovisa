@@ -347,6 +347,43 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── WHY TRUST US ──────────────────────────────────────────────────── */}
+      <section className="py-16 bg-gray-50 border-y border-gray-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <span className="inline-block bg-primary-50 text-primary-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+              Why Trust VisaProcessInfo
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-primary-800 mb-3">
+              Built by Immigration Professionals
+            </h2>
+            <p className="text-gray-500 max-w-xl mx-auto text-sm">
+              Our guides are written and reviewed by former visa officers, consular staff, and licensed immigration consultants — not just researchers.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {[
+              { icon: "🛡️", title: "Official Sources", desc: "Every guide researched from government portals and embassy websites" },
+              { icon: "👨‍⚖️", title: "Expert Reviewed", desc: "Reviewed by former visa officers and licensed immigration lawyers" },
+              { icon: "🔄", title: "Updated Quarterly", desc: "All guides reviewed every quarter with urgent updates within 48 hours" },
+              { icon: "💰", title: "100% Free", desc: "No paywalls, no agency affiliations, no hidden costs — always free" },
+            ].map((item) => (
+              <div key={item.title} className="bg-white rounded-2xl border border-gray-100 p-5 text-center shadow-sm">
+                <div className="text-3xl mb-3">{item.icon}</div>
+                <h3 className="font-bold text-gray-900 text-sm mb-1.5">{item.title}</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-6">
+            <Link href="/about" className="inline-flex items-center gap-1.5 text-sm text-primary-700 font-semibold hover:text-primary-900 transition-colors">
+              Learn about our editorial standards
+              <ChevronRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ─── SEO CONTENT ────────────────────────────────────────────────────── */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

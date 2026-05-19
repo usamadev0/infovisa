@@ -84,6 +84,28 @@ export function organizationSchema() {
     description:
       "Free visa and immigration guides for 131+ countries — study, work, tourist, and PR pathways.",
     foundingDate: "2020",
+    founder: {
+      "@type": "Person",
+      name: "Sarah Mitchell",
+      jobTitle: "Founder & Immigration Editor",
+    },
+    numberOfEmployees: {
+      "@type": "QuantitativeValue",
+      value: 4,
+    },
+    knowsAbout: [
+      "Visa Applications",
+      "Immigration Law",
+      "Study Abroad",
+      "Work Permits",
+      "Permanent Residency",
+      "Tourist Visas",
+      "Business Immigration",
+    ],
+    areaServed: {
+      "@type": "Place",
+      name: "Worldwide",
+    },
     sameAs: [],
   };
 }

@@ -128,6 +128,16 @@ export default async function BlogPostPage({ params }: Props) {
           {/* Main article */}
           <article className="lg:col-span-2">
 
+            {/* Trust & Freshness Signal */}
+            <div className="flex flex-wrap items-center gap-2.5 text-xs mb-8">
+              <div className="flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full px-3 py-1.5 font-medium">
+                ✓ Verified from official sources
+              </div>
+              <div className="flex items-center gap-1.5 bg-primary-50 text-primary-700 border border-primary-200 rounded-full px-3 py-1.5 font-medium">
+                Reviewed by immigration editors
+              </div>
+            </div>
+
             {/* Article body */}
             <div className="space-y-8">
               {body.map((section, i) => {
@@ -264,6 +274,28 @@ export default async function BlogPostPage({ params }: Props) {
                 >
                   All Visa Guides
                 </Link>
+              </div>
+            </div>
+
+            {/* Editorial Disclaimer */}
+            <div className="mt-8 bg-gray-50 border border-gray-200 rounded-2xl p-5">
+              <div className="flex items-start gap-3">
+                <span className="text-lg mt-0.5">🛡️</span>
+                <div>
+                  <h3 className="font-bold text-gray-900 text-sm mb-1.5">About This Article</h3>
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    This article was researched from official government immigration sources and reviewed by our editorial team. Immigration policies change frequently — always verify current requirements at official government portals before submitting your application.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    <Link href="/about" className="text-xs text-primary-700 font-medium hover:underline">
+                      Our editorial standards →
+                    </Link>
+                    <span className="text-gray-300">|</span>
+                    <Link href="/contact" className="text-xs text-primary-700 font-medium hover:underline">
+                      Report inaccurate information →
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
 

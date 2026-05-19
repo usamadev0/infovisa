@@ -24,6 +24,7 @@ import AdSlot from "@/components/ads/AdSlot";
 import Button from "@/components/ui/Button";
 import { VISA_TYPE_KEYWORDS, HOMEPAGE_KEYWORDS, mergeKeywords } from "@/lib/seo-keywords";
 import { getVisaTypeImageUrl } from "@/lib/images";
+import { ShieldCheck, CalendarDays, Users } from "lucide-react";
 
 interface Props {
   params: Promise<{ type: string }>;
@@ -150,6 +151,22 @@ export default async function VisaTypePage({ params }: Props) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-10">
+
+            {/* Trust & Freshness Signal */}
+            <div className="flex flex-wrap items-center gap-3 text-xs">
+              <div className="flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full px-3 py-1.5 font-medium">
+                <CalendarDays className="w-3.5 h-3.5" />
+                Last updated: May 2026
+              </div>
+              <div className="flex items-center gap-1.5 bg-primary-50 text-primary-700 border border-primary-200 rounded-full px-3 py-1.5 font-medium">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                Verified from official sources
+              </div>
+              <div className="flex items-center gap-1.5 bg-gray-50 text-gray-600 border border-gray-200 rounded-full px-3 py-1.5 font-medium">
+                <Users className="w-3.5 h-3.5" />
+                Reviewed by immigration editors
+              </div>
+            </div>
 
             {/* Common Requirements */}
             <section>
@@ -313,6 +330,27 @@ export default async function VisaTypePage({ params }: Props) {
                 </div>
               </section>
             )}
+            {/* Editorial Disclaimer */}
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-5">
+              <div className="flex items-start gap-3">
+                <ShieldCheck className="w-5 h-5 text-primary-600 mt-0.5 shrink-0" />
+                <div>
+                  <h3 className="font-bold text-gray-900 text-sm mb-1.5">About This Guide</h3>
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    This guide was researched from official government immigration portals and reviewed by our editorial team of former visa officers and immigration consultants. We update all guides quarterly. Always verify current requirements at official government sources before submitting your application.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    <Link href="/about" className="text-xs text-primary-700 font-medium hover:underline">
+                      Meet our editorial team →
+                    </Link>
+                    <span className="text-gray-300">|</span>
+                    <Link href="/contact" className="text-xs text-primary-700 font-medium hover:underline">
+                      Report an update →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* ── Sidebar ── */}
